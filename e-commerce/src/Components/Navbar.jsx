@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-
-
+import { Link } from "react-router";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,12 +39,12 @@ const Navbar = () => {
               className={`nav-links ${menuOpen ? "active" : ""}`}
               ref={navRef}
             >
-              <a href="#">Home</a>
-              <a href="#">Shop</a>
-              <a href="#">Categories</a>
-              <a href="#">Deals</a>
-              <a href="#">About</a>
-              <a href="#">Contact</a>
+              <Link className="nav-list" to="/">Home</Link>
+              <Link className="nav-list" to="/shop">Shop</Link>
+              <Link className="nav-list" to="/categories">Categories</Link>
+              <Link className="nav-list" to="/deals">Deals</Link>
+              <Link className="nav-list" to="/about">About</Link>
+              <Link className="nav-list" to="/contact">Contact</Link>
             </div>
           </nav>
 
