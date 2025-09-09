@@ -1,4 +1,6 @@
 import './assets/css/responsive.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/cart.css'
 import './App.css'
 import {
   createBrowserRouter,

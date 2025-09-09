@@ -68,10 +68,10 @@ const Navbar = () => {
         </div>
       </header>
 
-      <main style={{ padding: "40px", maxWidth: "1200px", margin: "auto" }}>
+      {/* <main style={{ padding: "40px", maxWidth: "1200px", margin: "auto" }}>
         <h2>Example content</h2>
         <p>This updated footer includes a newsletter form and social icons.</p>
-      </main>
+      </main> */}
     </div>
   );
 };
