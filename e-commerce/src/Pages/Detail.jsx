@@ -3,7 +3,7 @@
 import { Box, Card, CardMedia, CardContent, Typography, Button, Container, Divider, Chip } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-import  FetchProduct  from '../Services/FetchProduct';
+
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
 

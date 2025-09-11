@@ -104,12 +104,13 @@ const Shop = () => {
                     "linear-gradient(90deg, #3D78C3 0%, #1C98AD 100%)",
 
                   fontWeight: "bold",
+                  fontSize:22,
                   borderRadius: "7px",
                   width: "95%",
                   height: "10%",
                   px: 3,
                   ml: 1.3,
-                  mt: 8.5,
+                  mt: 1,
                   py: 1,
                   boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
                   textTransform: "none",
@@ -117,7 +118,7 @@ const Shop = () => {
                   "&:hover": {
                     background:
                       "linear-gradient(90deg, #3D78C3 0%, #1C98AD 100%)",
-                    transform: "scale(1.05)",
+                    transform: "scale(1.03)",
                   },
                 }}
               >
@@ -127,6 +128,34 @@ const Shop = () => {
                 >
                   View Details
                 </NavLink>
+              </Button>
+              <Button
+                variant="outlined"
+                sx={{
+                  background:
+                    "linear-gradient(90deg, #3D78C3 0%, #1C98AD 100%)",
+
+                  fontWeight: "bold",
+                  borderRadius: "7px",
+                   fontSize:22,
+                  width: "95%",
+                  height: "10%",
+                  color: "white",
+                  px: 3,
+                  ml: 1.3,
+                  mt: 1,
+                  py: 1,
+                  boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
+                  textTransform: "none",
+                  transition: "0.3s",
+                  "&:hover": {
+                    background:
+                      "linear-gradient(90deg, #3D78C3 0%, #1C98AD 100%)",
+                    transform: "scale(1.03)",
+                  },
+                }}
+              >
+                Add to Cart
               </Button>
             </Paper>
           </Grid>

@@ -4,10 +4,10 @@ import Footer from '../Components/Footer'
 const Contact = () => {
     return (
         <div>
-            <Navbar />
+           
             <h1>Contact</h1>
 
-            <Footer />
+            
         </div>
     )
 }

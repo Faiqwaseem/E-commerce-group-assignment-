@@ -7,10 +7,10 @@ import Cart from '../Components/Cart'
 const Home = () => {
   return (
     <div>
-        <Navbar/>
+        
         <CarouselsHome />
         <Cart />
-        <Footer />
+      
     </div>
   )
 }
