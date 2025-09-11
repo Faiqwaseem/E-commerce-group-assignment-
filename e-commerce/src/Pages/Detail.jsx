@@ -6,9 +6,17 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
+import { useEffect } from 'react';
 
 const Detail = () => {
  const {id}=useParams()
+ useEffect(() => {
+    // page load hone par top se start karo
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // smooth scroll optional
+    });
+  }, []);
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["products",id],
