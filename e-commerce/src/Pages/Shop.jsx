@@ -69,7 +69,7 @@ const Shop = () => {
             key={product.id}
           >
             <Paper
-              sx={{ minWidth: 345, height: 547, border: "2px solid #F7F7F7" }}
+              sx={{ overflow:"hidden",minWidth: 345, height: 547, border: "2px solid #F7F7F7" }}
               elevation={6}
             >
               <CardMedia
@@ -77,7 +77,14 @@ const Shop = () => {
                 height="200"
                 image={product.thumbnail}
                 alt={product.title}
-                sx={{ bgcolor: "#F7F7F7", objectFit: "cover" }}
+                sx={{
+                  transition: "0.3s",
+                  "&:hover": {
+                    transform: "scale(1.08)",
+                  },
+                  bgcolor: "#F7F7F7",
+                  objectFit: "cover",
+                }}
               />
               <CardContent>
                 <Typography variant="h6" component="div">
@@ -104,7 +111,7 @@ const Shop = () => {
                     "linear-gradient(90deg, #3D78C3 0%, #1C98AD 100%)",
 
                   fontWeight: "bold",
-                  fontSize:22,
+                  fontSize: 22,
                   borderRadius: "7px",
                   width: "95%",
                   height: "10%",
@@ -137,7 +144,7 @@ const Shop = () => {
 
                   fontWeight: "bold",
                   borderRadius: "7px",
-                   fontSize:22,
+                  fontSize: 22,
                   width: "95%",
                   height: "10%",
                   color: "white",
