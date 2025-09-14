@@ -41,10 +41,10 @@ const Navbar = () => {
             >
               <Link className="nav-list" to="/">Home</Link>
               <Link className="nav-list" to="/shop">Shop</Link>
-              <Link className="nav-list" to="/categories">Categories</Link>
               <Link className="nav-list" to="/deals">Deals</Link>
               <Link className="nav-list" to="/about">About</Link>
               <Link className="nav-list" to="/contact">Contact</Link>
+              <Link className="nav-list" to="/oderSummary">Oder summary</Link>
             </div>
           </nav>
 
@@ -67,11 +67,6 @@ const Navbar = () => {
           </div>
         </div>
       </header>
-
-      {/* <main style={{ padding: "40px", maxWidth: "1200px", margin: "auto" }}>
-        <h2>Example content</h2>
-        <p>This updated footer includes a newsletter form and social icons.</p>
-      </main> */}
     </div>
   );
 };
