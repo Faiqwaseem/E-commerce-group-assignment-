@@ -1,30 +1,37 @@
-import { Paper ,Typography,List,ListItem,Avatar,ListItemAvatar,Box} from '@mui/material';
-import { useQuery } from '@tanstack/react-query';
-import React from 'react'
-import { useParams } from 'react-router';
-
-
+import {
+  Paper,
+  Typography,
+  List,
+  ListItem,
+  Avatar,
+  ListItemAvatar,
+  Box,
+} from "@mui/material";
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
+import { useParams } from "react-router";
 
 const Review = () => {
-   const { id } = useParams();
-     const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["Review"],
+  const { id } = useParams();
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["Review", id],
     queryFn: async () => {
       const FetchedData = await fetch(`https://dummyjson.com/products/${id}`);
       return FetchedData.json();
     },
-
+    initialData: { reviews: [] },
   });
 
-  const reviews = data.reviews || [];
-  console.log("reviews",data)
+  const reviews = data?.reviews ?? [];
+  console.log("reviews", data);
   return (
     <>
-    <Paper
+      <Paper
         elevation={4}
         sx={{
           mt: 1.2,
           p: 3,
+          height:"340px",
           borderRadius: 3,
           backgroundColor: "#FFFFFF",
         }}
@@ -39,8 +46,7 @@ const Review = () => {
               <ListItemAvatar>
                 <Avatar src={"https://i.pravatar.cc/40?img=1"} />
               </ListItemAvatar>
-              <Box sx={{ display: "flex" ,flexDirection:"column"}}>
-              
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Typography variant="subtitle1" fontWeight={600}>
                   {review.reviewerName}
                 </Typography>
@@ -66,6 +72,6 @@ const Review = () => {
         </List>
       </Paper>
     </>
-  )
-}
-export default Review
+  );
+};
+export default Review;

@@ -38,6 +38,7 @@ const Detail = () => {
       const FetchedData = await fetch(`https://dummyjson.com/products/${id}`);
       return FetchedData.json();
     },
+    initialData: { reviews: [] } 
   });
 
   const product = data || [];
@@ -186,7 +187,7 @@ const Detail = () => {
           </Box>
         </CardContent>
       </Card>
-      <Review />
+      <Review />     
     </Container>
   );
 };
