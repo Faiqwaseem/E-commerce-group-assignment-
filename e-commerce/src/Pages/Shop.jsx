@@ -51,7 +51,7 @@ const Shop = () => {
 
   return (
     <Box sx={{ padding: 4, backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography variant="h3" sx={{fontWeight:600}} align="center" gutterBottom>
         Shop Our Products
       </Typography>
       <Grid container justifyContent="center" spacing={3}>
