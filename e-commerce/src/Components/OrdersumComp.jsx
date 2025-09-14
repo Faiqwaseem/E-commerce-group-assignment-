@@ -1,10 +1,9 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
-import Footer from '../Components/Footer'
-const oderSummary = () => {
-    return (
-        <div>
-            <section className="cart-container">
+
+const OrdersumComp = () => {
+  return (
+    <div>
+         <section className="cart-container">
                 <h2>Your Shopping Cart</h2>
 
                 <div className="cart-items">
@@ -47,8 +46,8 @@ const oderSummary = () => {
                     <button className="checkout-btn">Proceed to Checkout</button>
                 </div>
             </section>
-        </div>
-    )
+    </div>
+  )
 }
 
-export default oderSummary
+export default OrdersumComp
