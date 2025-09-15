@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+import { Link } from "react-router";
 import ProductSlider from "../Components/ProductSlider";
 import "../assets/css/responsive.css";
-
+import FetchProduct from "../Services/FetchProduct";
+import { useQuery } from "@tanstack/react-query";
+import { NavLink } from "react-router";
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -41,69 +42,16 @@ const Home = () => {
   }, [banners.length]);
 
   // Products
-  const products = [
-    {
-      id: 1,
-      name: "iPhone 14 Pro",
-      price: "$999",
-      image:
-        "https://images.unsplash.com/photo-1675525897769-7d16f3b2a3d1?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      id: 2,
-      name: "Sony Headphones",
-      price: "$349",
-      image:
-        "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      id: 3,
-      name: "Apple Watch Series 8",
-      price: "$399",
-      image:
-        "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      id: 4,
-      name: "MacBook Pro M2",
-      price: "$1999",
-      image:
-        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      id: 5,
-      name: "Canon EOS DSLR",
-      price: "$649",
-      image:
-        "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      id: 6,
-      name: "iPad Pro 12.9",
-      price: "$799",
-      image:
-        "https://images.unsplash.com/photo-1606813902775-9b83f48c8a4c?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      id: 7,
-      name: "PlayStation 5 Console",
-      price: "$499",
-      image:
-        "https://images.unsplash.com/photo-1606813902775-9b83f48c8a4c?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      id: 8,
-      name: "JBL Bluetooth Speaker",
-      price: "$99",
-      image:
-        "https://images.unsplash.com/photo-1583337130417-3346a1c2d1d0?auto=format&fit=crop&w=600&q=80",
-    },
-  ];
-
+  const { data } = useQuery({
+    queryKey: ["products"],
+    queryFn: FetchProduct,
+  });
+  const products = data?.products || [];
+  console.log(products);
   return (
     <div>
 
-  
+
 
       {/* Hero Banner */}
       <section
@@ -113,7 +61,8 @@ const Home = () => {
         <div className="hero-content">
           <h1>{banners[currentSlide].title}</h1>
           <p>{banners[currentSlide].subtitle}</p>
-          <button className="shop-btn">Shop Now</button>
+          <button className="shop-btn"><Link className="LinkShop" to="/shop">Shop Now</Link></button>
+
         </div>
       </section>
 
@@ -122,44 +71,50 @@ const Home = () => {
         <h2 className="section-title">All Products</h2>
 
         {/* First 4 Products */}
-        <div className="product-grid">
-          {products.slice(0, 4).map((p) => (
-            <div key={p.id} className="product-card">
-              <div className="img-box">
-                <img src={p.image} alt={p.name} />
-              </div>
-              <h3>{p.name}</h3>
-              <p className="price">{p.price}</p>
-              <div className="btn-group">
-                <button className="cart-btn">Add to Cart</button>
-                <button className="order-btn">Buy Now</button>
-              </div>
-            </div>
-          ))}
-        </div>
 
+       
+          <div className="product-grid">
+            {products.slice(0, 15).map((product) => (
+              <div key={product.id} className="product-card">
+                <div className="img-box">
+                  <img src={product.thumbnail} alt={product.title} />
+                </div>
+                <h3>{product.title}</h3>
+                <p className="price">{product.price}</p>
+                <div className="btn-group">
+                  <button className="cart-btn">Add to Cart</button>
+                  <button className="order-btn">Buy Now</button>
+                </div>
+              </div>
+            ))}
+          </div>
+       
         {/* ✅ Slider */}
-        <ProductSlider products={products} />
+
 
         {/* Remaining Products */}
-        <div className="product-grid">
-          {products.slice(4).map((p) => (
-            <div key={p.id} className="product-card">
-              <div className="img-box">
-                <img src={p.image} alt={p.name} />
-              </div>
-              <h3>{p.name}</h3>
-              <p className="price">{p.price}</p>
-              <div className="btn-group">
-                <button className="cart-btn">Add to Cart</button>
-                <button className="order-btn">Buy Now</button>
-              </div>
+        {/* <div className="product-grid">
+        {products.slice(15).map((product) => (
+          <div key={product.id} className="product-card">
+            <div className="img-box">
+              <img src={product.thumbnail} alt={product.title} />
             </div>
-          ))}
-        </div>
+            <h3>{product.title}</h3>
+            <p className="price">{product.price}</p>
+            <div className="btn-group">
+              <button className="cart-btn">Add to Cart</button>
+              <button className="order-btn">Buy Now</button>
+            </div>
+          </div>
+        ))}
+      </div> */}
+
+        <ProductSlider products={products} />
+
+
       </section>
 
-    
+
     </div>
   );
 };

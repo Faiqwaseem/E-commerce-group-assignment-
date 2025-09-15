@@ -8,19 +8,12 @@ import {
   Container,
   Divider,
   Chip,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Avatar,
-  Paper,
 } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import { useEffect } from "react";
-import Review from "../Components/Review";
 
 const Detail = () => {
   const { id } = useParams();
@@ -38,13 +31,10 @@ const Detail = () => {
       const FetchedData = await fetch(`https://dummyjson.com/products/${id}`);
       return FetchedData.json();
     },
-    initialData: { reviews: [] } 
   });
 
   const product = data || [];
   console.log("data", data);
-  
-
 
   if (!product) {
     return (
@@ -57,7 +47,6 @@ const Detail = () => {
   }
 
   return (
-
     <Container maxWidth="md" sx={{ height: "987px", width: "856px", py: 4 }}>
       <Card
         sx={{
@@ -67,16 +56,13 @@ const Detail = () => {
           borderRadius: 2,
         }}
       >
-
         {/* Product Image */}
         <CardMedia
           component="img"
           alt={product.title}
+          height="400"
           image={product.images?.[0] || product.thumbnail}
           sx={{
-            height: "278px",
-            width: "389px",
-
             transition: "0.3s",
             "&:hover": {
               transform: "scale(1.08)",
@@ -145,11 +131,7 @@ const Detail = () => {
           {/* Additional Details (Optional) */}
           {product.brand && (
             <Box sx={{ mt: 2 }}>
-              <Typography
-                variant="subtitle2"
-                sx={{ fontSize: "18px" }}
-                color="textSecondary"
-              >
+              <Typography variant="subtitle2" color="textSecondary">
                 Brand: {product.brand}
               </Typography>
             </Box>
@@ -157,12 +139,8 @@ const Detail = () => {
 
           {product.rating && (
             <Box sx={{ mt: 1 }}>
-              <Typography
-                variant="subtitle2"
-                sx={{ fontSize: "18px" }}
-                color="textSecondary"
-              >
-                Rating:{product.rating} / 5
+              <Typography variant="subtitle2" color="textSecondary">
+                Rating: {product.rating} / 5
               </Typography>
             </Box>
           )}
@@ -178,7 +156,6 @@ const Detail = () => {
               sx={{
                 px: 4,
                 py: 1.5,
-                borderRadius: "7px",
                 fontSize: "1.1rem",
                 boxShadow: 2,
                 "&:hover": { boxShadow: 3 },
@@ -189,7 +166,6 @@ const Detail = () => {
           </Box>
         </CardContent>
       </Card>
-      <Review />     
     </Container>
   );
 };
