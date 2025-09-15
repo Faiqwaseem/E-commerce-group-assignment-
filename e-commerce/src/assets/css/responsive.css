@@ -583,6 +583,7 @@ footer {
   }
 }
 
+
 /* ===== PRODUCT GRID FIX ===== */
 @media (max-width: 320px) {
   .product-grid {
@@ -592,4 +593,5 @@ footer {
   .product-card .img-box {
     height: 100px;
   }
+
 }

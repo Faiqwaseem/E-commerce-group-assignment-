@@ -57,6 +57,7 @@ const Detail = () => {
   }
 
   return (
+
     <Container maxWidth="md" sx={{ height: "987px", width: "856px", py: 4 }}>
       <Card
         sx={{
@@ -66,6 +67,7 @@ const Detail = () => {
           borderRadius: 2,
         }}
       >
+
         {/* Product Image */}
         <CardMedia
           component="img"
