@@ -1,0 +1,140 @@
+/* ---------- ProductSlider component styles ---------- */
+.product-slider {
+  position: relative;
+  padding: 20px 16px;
+  background: #fafafa;
+  border-radius: 12px;
+  margin: 30px 0;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* viewport wrapper for touch scrolling */
+.slider-viewport {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* track — we use transform for sliding */
+.slider-track {
+  display: flex;
+  gap: 16px;
+  will-change: transform;
+}
+
+/* individual slide card */
+.slider-card {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.slider-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* small inner image box */
+.slider-card .img-box {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: #f0f0f0;
+}
+.slider-card .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* arrows */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 40;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease;
+}
+.slider-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+.slider-btn.disabled { opacity: 0.45; pointer-events: none; }
+
+/* dots */
+.slider-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 14px;
+}
+.slider-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.12);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.slider-dots .dot.active { 
+  width: 12px;
+  height: 12px;
+  background: var(--accent); 
+  transform: scale(1.2);
+}
+
+/* responsive tweaks */
+@media (max-width: 1024px) {
+  .slider-card .img-box { height: 140px; }
+  .slider-track { gap: 14px; }
+}
+@media (max-width: 768px) {
+  .slider-card .img-box { height: 120px; }
+  .slider-btn { padding: 6px 8px; }
+  .slider-track { gap: 12px; }
+}
+@media (max-width: 425px) {
+  .slider-card .img-box { height: 110px; }
+  .slider-btn { padding: 5px 7px; font-size: 14px; }
+  .slider-track { gap: 10px; }
+}
+@media (max-width: 375px) and (min-width: 376px) {
+  /* This ensures it only applies exactly around 375px */
+  .slider-card .img-box { height: 100px; }
+  .slider-card { padding: 8px; border-radius: 10px; }
+  .slider-btn { padding: 5px 6px; font-size: 12px; }
+  .slider-dots { gap: 6px; }
+  .slider-dots .dot.active { width: 10px; height: 10px; }
+  .slider-track { gap: 12px; } /* slightly more gap for proper spacing */
+}
+@media (max-width: 320px) {
+  .slider-card .img-box { height: 90px; }
+  .slider-card { padding: 6px; border-radius: 8px; }
+  .slider-btn { padding: 4px 5px; font-size: 11px; }
+  .slider-dots { gap: 4px; }
+  .slider-dots .dot.active { width: 10px; height: 10px; }
+}
+ 
