@@ -1,6 +1,8 @@
 import "./assets/css/responsive.css";
 import "./assets/css/odersummary.css";
 import "./App.css";
+import { Provider } from 'react-redux'
+import Store from "./Redux/Store";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -14,7 +16,6 @@ import {
 
 } from "@tanstack/react-query";
 import Detail from "./Pages/Detail";
-
 import AppLayout from "./Components/AppLayout";
 
 
@@ -40,9 +41,11 @@ function App() {
   ]);
   return (
     <>
-      <QueryClientProvider client={query}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
+      <Provider store={Store}>
+        <QueryClientProvider client={query}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </Provider>
     </>
   );
 }

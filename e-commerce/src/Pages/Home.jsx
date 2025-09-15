@@ -5,7 +5,14 @@ import "../assets/css/responsive.css";
 import FetchProduct from "../Services/FetchProduct";
 import { useQuery } from "@tanstack/react-query";
 import { NavLink } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { addCart } from "../Redux/Slices/OrderItemSlice";
 const Home = () => {
+  const dispatch = useDispatch();
+  const { OrderPro } = useSelector((state) => state.OrderItem)
+  console.log("OrderPro",)
+
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Hero banners
@@ -72,23 +79,23 @@ const Home = () => {
 
         {/* First 4 Products */}
 
-       
-          <div className="product-grid">
-            {products.slice(0, 15).map((product) => (
-              <div key={product.id} className="product-card">
-                <div className="img-box">
-                  <img src={product.thumbnail} alt={product.title} />
-                </div>
-                <h3>{product.title}</h3>
-                <p className="price">{product.price}</p>
-                <div className="btn-group">
-                  <button className="cart-btn">Add to Cart</button>
-                  <button className="order-btn">Buy Now</button>
-                </div>
+
+        <div className="product-grid">
+          {products.slice(0, 15).map((product) => (
+            <div key={product.id} className="product-card">
+              <div className="img-box">
+                <img src={product.thumbnail} alt={product.title} />
               </div>
-            ))}
-          </div>
-       
+              <h3>{product.title}</h3>
+              <p className="price">{product.price}</p>
+              <div className="btn-group">
+                <button className="cart-btn" onClick={() => dispatch(addCart())}>Add to Cart</button>
+                <button className="order-btn">Buy Now</button>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* ✅ Slider */}
 
 
