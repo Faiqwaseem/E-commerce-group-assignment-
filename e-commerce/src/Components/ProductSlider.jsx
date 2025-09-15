@@ -117,21 +117,21 @@ const ProductSlider = ({ products = [], autoplay = true, interval = 3000 }) => {
             transition: "transform 520ms cubic-bezier(.22,.9,.33,1)",
           }}
         >
-          {products.map((p) => (
+          {products.slice(5, 15).map((product) => (
             <div
-              key={p.id}
+              key={product.id}
               className="slider-card"
               style={{ minWidth: `${100 / slidesPerView}%` }}
             >
               <div className="img-box">
-                <img src={p.image} alt={p.name} />
+                <img src={product.thumbnail} alt={product.title} />
               </div>
-              <h3>{p.name}</h3>
-              <p className="price">{p.price}</p>
-              <div className="btn-group">
-                <button className="cart-btn">Add to Cart</button>
-                <button className="order-btn">Buy Now</button>
-              </div>
+              <h3>{product.title}</h3>
+              <p className="price">{product.price}</p>
+             <div className="btn-group">
+              <button className="cart-btn">Add to Cart</button>
+              <button className="order-btn">Buy Now</button>
+            </div>
             </div>
           ))}
         </div>

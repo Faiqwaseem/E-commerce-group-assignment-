@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
 import "../assets/css/responsive.css";
 
 const Contact = () => {
@@ -57,8 +56,6 @@ const Contact = () => {
           loading="lazy"
         ></iframe>
       </section>
-
-      <Footer />
     </div>
   );
 };

@@ -90,7 +90,6 @@ const About = () => {
         <button>Start Shopping</button>
       </section>
 
-      <Footer />
     </div>
   );
 };
