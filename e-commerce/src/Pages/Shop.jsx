@@ -51,16 +51,23 @@ const Shop = () => {
 
   return (
     <Box sx={{ padding: 4, backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography variant="h3" sx={{fontWeight:600}} align="center" gutterBottom>
         Shop Our Products
       </Typography>
-      <Grid container justifyContent="center" spacing={7}>
+      <Grid container justifyContent="center" spacing={3}>
         {products.map((product) => (
           <Grid
             sx={{
-              height: 547,
-              minHeight: 463,
-              width: 412,
+              height: "461px",
+              minHeight: "360px",
+              overflow: "hidden",
+              boxShadow: `
+          0 0 25px rgba(255,255,255,0.7),
+          0 2px 8px rgba(0,0,0,0.15)      
+        `,
+              width: "432px",
+              borderRadius: "13px",
+              border: "1px solid #E0DDDDFF",
               transition: "0.3s",
               "&:hover": {
                 transform: "translateY(-10px)",
@@ -69,8 +76,12 @@ const Shop = () => {
             key={product.id}
           >
             <Paper
-              sx={{ overflow:"hidden",minWidth: 345, height: 547, border: "2px solid #F7F7F7" }}
-              elevation={6}
+              sx={{
+                minWidth: "360px",
+                height: "461px",
+                background: "#fff",
+              }}
+              elevation={1}
             >
               <CardMedia
                 component="img"
@@ -86,8 +97,8 @@ const Shop = () => {
                   objectFit: "cover",
                 }}
               />
-              <CardContent>
-                <Typography variant="h6" component="div">
+              <CardContent sx={{ p: 1 }}>
+                <Typography sx={{fontWeight:600}} variant="h6" component="div">
                   {product.title.slice(0, 36)}
                 </Typography>
                 <Typography variant="subtitle1" color="text.secondary">
@@ -96,74 +107,77 @@ const Shop = () => {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ marginY: 1 }}
+                  sx={{ marginY: 1 ,}}
                 >
-                  {product.description.slice(0, 123)}
+                  {product.description.slice(0, 101)}
                 </Typography>
-                <Typography variant="h6" color="primary">
-                  {`Price : ${product.price}$`}
+                <Typography
+                  variant="h6"
+                  sx={{ color: "#E74C3C", fontWeight: "bold" }}
+                >
+                  {product.price}$
                 </Typography>
               </CardContent>
-              <Button
-                variant="outlined"
-                sx={{
-                  background:
-                    "linear-gradient(90deg, #3D78C3 0%, #1C98AD 100%)",
+              <Box sx={{ display: "flex", mt: 4 }}>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    bgcolor: "#2563EB",
+                    "&:hover": {
+                      bgcolor: "#1E40AF",
+                      transform: "scale(1.03)",
+                    },
+                    fontWeight: "bold",
+                    borderRadius: "7px",
+                    fontSize: "14.6px",
+                    width: "233px",
+                    height: "40px",
+                    color: "white",
+                    px: 2.7,
+                    ml: 1.3,
 
-                  fontWeight: "bold",
-                  fontSize: 22,
-                  borderRadius: "7px",
-                  width: "95%",
-                  height: "10%",
-                  px: 3,
-                  ml: 1.3,
-                  mt: 1,
-                  py: 1,
-                  boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-                  textTransform: "none",
-                  transition: "0.3s",
-                  "&:hover": {
-                    background:
-                      "linear-gradient(90deg, #3D78C3 0%, #1C98AD 100%)",
-                    transform: "scale(1.03)",
-                  },
-                }}
-              >
-                <NavLink
-                  style={{ color: "white", textDecoration: "none" }}
-                  to={`/product/${product.id}`}
+                    mr: 1,
+                    py: 1,
+                    boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
+                    textTransform: "none",
+                    transition: "0.3s",
+                  }}
                 >
-                  View Details
-                </NavLink>
-              </Button>
-              <Button
-                variant="outlined"
-                sx={{
-                  background:
-                    "linear-gradient(90deg, #3D78C3 0%, #1C98AD 100%)",
+                  Add to Cart
+                </Button>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    bgcolor: "#27AE60",
+                    "&:hover": {
+                      bgcolor: "#219150",
+                      transform: "scale(1.03)",
+                    },
+                    border: "none",
+                    fontWeight: "bold",
 
-                  fontWeight: "bold",
-                  borderRadius: "7px",
-                  fontSize: 22,
-                  width: "95%",
-                  height: "10%",
-                  color: "white",
-                  px: 3,
-                  ml: 1.3,
-                  mt: 1,
-                  py: 1,
-                  boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-                  textTransform: "none",
-                  transition: "0.3s",
-                  "&:hover": {
-                    background:
-                      "linear-gradient(90deg, #3D78C3 0%, #1C98AD 100%)",
-                    transform: "scale(1.03)",
-                  },
-                }}
-              >
-                Add to Cart
-              </Button>
+                    fontSize: "13.6px",
+                    borderRadius: "7px",
+                    width: "233px",
+                    height: "40px",
+                    px: 3,
+                    mr: 1,
+                    ml: 1.3,
+
+                    py: 1,
+                    boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
+                    transition: "0.3s",
+                    textTransform: "none",
+                  }}
+                >
+                  <NavLink
+                    style={{ color: "white", textDecoration: "none" }}
+                    to={`/product/${product.id}`}
+                  >
+                    View Details
+                  </NavLink>
+                </Button>
+              </Box>
             </Paper>
           </Grid>
         ))}

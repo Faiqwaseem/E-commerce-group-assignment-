@@ -23,6 +23,7 @@ const Navbar = () => {
   }, []);
 
   return (
+
     <div>
       <header className="nav-wrap">
         <div className="container">
@@ -48,26 +49,29 @@ const Navbar = () => {
             </div>
           </nav>
 
-          <div className="actions">
-            <form className="search">
-              <input type="search" placeholder="Search products" />
-            </form>
-            <button className="icon-btn">❤</button>
-            <button className="icon-btn cart">
-              🛒<span className="badge">3</span>
-            </button>
-            <button className="icon-btn">👤</button>
-            <button
-              className={`icon-btn hamburger ${menuOpen ? "open" : ""}`}
-              onClick={() => setMenuOpen(!menuOpen)}
-              ref={toggleRef}
-            >
-              ☰
-            </button>
-          </div>
+    
+
+        {/* Actions */}
+        <div className="actions">
+          <form className="search">
+            <input type="search" placeholder="Search products" />
+          </form>
+          <button className="icon-btn">❤</button>
+          <button className="icon-btn cart">
+            🛒<span className="badge">3</span>
+          </button>
+          <button className="icon-btn">👤</button>
+          <button
+            className={`icon-btn hamburger ${menuOpen ? "open" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            ref={toggleRef}
+          >
+            ☰
+          </button>
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
+ </div>
   );
 };
 

@@ -1,70 +1,53 @@
-import React from 'react'
+// src/Components/Footer.jsx
+import React from "react";
+import "../assets/css/responsive.css";
 
 const Footer = () => {
-    return (
-        <div>
-            <footer>
+  return (
+    <footer className="footer">
       <div className="footer-container">
-        {/* Logo Section */}
-        <div>
-          <div className="footer-logo">
-            <div className="logo">EC</div>
-            <span style={{ fontWeight: 700, fontSize: "18px" }}>ShopMate</span>
-          </div>
-          <p style={{ color: "#94a3b8", fontSize: "14px" }}>
-            Your trusted e-commerce partner for essentials and lifestyle products.
+        <div className="footer-col">
+          <h4>ShopEase</h4>
+          <p>
+            Your one-stop shop for the latest trends and best deals. Quality and
+            satisfaction guaranteed.
           </p>
-          {/* Social Links */}
-          <div className="social-links">
-            <a href="#">🌐</a>
-            <a href="#">📘</a>
-            <a href="#">🐦</a>
-            <a href="#">📸</a>
-          </div>
         </div>
 
-        {/* Shop Section */}
-        <div className="footer-section">
-          <h4>Shop</h4>
-          <a href="#">New Arrivals</a>
-          <a href="#">Best Sellers</a>
-          <a href="#">Discounts</a>
-          <a href="#">Gift Cards</a>
+        <div className="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
         </div>
 
-        {/* Company Section */}
-        <div className="footer-section">
-          <h4>Company</h4>
-          <a href="#">About Us</a>
-          <a href="#">Careers</a>
-          <a href="#">Blog</a>
-          <a href="#">Press</a>
+        <div className="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
         </div>
 
-        {/* Help Section */}
-        <div className="footer-section">
-          <h4>Help</h4>
-          <a href="#">Contact</a>
-          <a href="#">Returns</a>
-          <a href="#">FAQs</a>
-          <a href="#">Shipping</a>
-        </div>
-
-        {/* Newsletter */}
-        <div className="footer-section newsletter">
+        <div className="footer-col">
           <h4>Newsletter</h4>
-          <input type="email" placeholder="Enter your email" />
-          <button>Subscribe</button>
+          <form className="newsletter">
+            <input type="email" placeholder="Enter your email" />
+            <button type="submit">Subscribe</button>
+          </form>
         </div>
       </div>
 
       <div className="footer-bottom">
-        © 2025 ShopMate. All rights reserved. | Privacy Policy | Terms
+        <p>© 2025 ShopEase. All rights reserved.</p>
       </div>
     </footer>
+  );
+};
 
-        </div>
-    )
-}
-
-export default Footer
+export default Footer;
