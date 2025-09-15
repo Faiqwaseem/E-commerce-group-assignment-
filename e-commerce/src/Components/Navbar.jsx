@@ -23,31 +23,33 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="nav-wrap">
-      <div className="nav-container">
-        {/* Brand Logo */}
-        <Link className="brand" to="/">
-          <div className="logo">EC</div>
-          <div>
-            <h1>ShopMate</h1>
-            <p>Daily essentials</p>
-          </div>
-        </Link>
 
-        {/* Navigation Links */}
-        <nav>
-          <div
-            className={`nav-links ${menuOpen ? "active" : ""}`}
-            ref={navRef}
-          >
-            <Link className="nav-list" to="/">Home</Link>
-            <Link className="nav-list" to="/shop">Shop</Link>
-            <Link className="nav-list" to="/categories">Categories</Link>
-            <Link className="nav-list" to="/deals">Deals</Link>
-            <Link className="nav-list" to="/about">About</Link>
-            <Link className="nav-list" to="/contact">Contact</Link>
-          </div>
-        </nav>
+    <div>
+      <header className="nav-wrap">
+        <div className="container">
+          <a className="brand" href="#">
+            <div className="logo">EC</div>
+            <div>
+              <h1>ShopMate</h1>
+              <p>Daily essentials</p>
+            </div>
+          </a>
+
+          <nav>
+            <div
+              className={`nav-links ${menuOpen ? "active" : ""}`}
+              ref={navRef}
+            >
+              <Link className="nav-list" to="/">Home</Link>
+              <Link className="nav-list" to="/shop">Shop</Link>
+              <Link className="nav-list" to="/deals">Deals</Link>
+              <Link className="nav-list" to="/about">About</Link>
+              <Link className="nav-list" to="/contact">Contact</Link>
+              <Link className="nav-list" to="/oderSummary">Order summary</Link>
+            </div>
+          </nav>
+
+    
 
         {/* Actions */}
         <div className="actions">
@@ -69,6 +71,7 @@ const Navbar = () => {
         </div>
       </div>
     </header>
+ </div>
   );
 };
 

@@ -1,10 +1,11 @@
 import "./assets/css/responsive.css";
+import "./assets/css/odersummary.css";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Shop from "./Pages/Shop";
-import Categories from "./Pages/Categories";
+import OrderSummary from "./Pages/OrderSummary";
 import Deals from "./Pages/Deals";
 import Contact from "./Pages/Contact";
 import {
@@ -29,7 +30,7 @@ function App() {
       children: [
         { path: "/shop", element: <Shop /> },
         { path: "/product/:id", element: <Detail /> },
-        { path: "/categories", element: <Categories /> },
+        { path: "/oderSummary", element: <OrderSummary /> },
         { path: "/deals", element: <Deals /> },
         { path: "/", element: <Home /> },
         { path: "/about", element: <About /> },

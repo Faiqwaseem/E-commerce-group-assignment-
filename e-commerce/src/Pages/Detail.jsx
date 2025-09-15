@@ -47,8 +47,15 @@ const Detail = () => {
   }
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
-      <Card sx={{ overflow:"hidden", boxShadow: 3, borderRadius: 2 }}>
+    <Container maxWidth="md" sx={{ height: "987px", width: "856px", py: 4 }}>
+      <Card
+        sx={{
+          display: "flex",
+          overflow: "hidden",
+          boxShadow: 3,
+          borderRadius: 2,
+        }}
+      >
         {/* Product Image */}
         <CardMedia
           component="img"
