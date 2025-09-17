@@ -14,8 +14,13 @@ import Review from '../Components/Review'
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import { useEffect } from "react";
+import { useContext } from "react";
+import ProductContext from "../Context/ProductContext";
+ import { useNavigate } from "react-router";
 
 const Detail = () => {
+  const { addToCart } = useContext(ProductContext);
+  const navigate = useNavigate()
   const { id } = useParams();
   useEffect(() => {
     // page load hone par top se start karo
@@ -160,8 +165,11 @@ const Detail = () => {
                 boxShadow: 2,
                 "&:hover": { boxShadow: 3 },
               }}
+              onClick={()=> {addToCart(product); navigate('/oderSummary')
+                
+              }}
             >
-              Add to Cart
+              Buy Now
             </Button>
           </Box>
         </CardContent>

@@ -7,7 +7,7 @@ export const ProductProvider = ({ children }) => {
 
     // ✅ add to cart
     const addToCart = (item) => {
-        
+
         setCartItems((prev) => {
             // check if already exists
             const existing = prev.find((p) => p.id === item.id);

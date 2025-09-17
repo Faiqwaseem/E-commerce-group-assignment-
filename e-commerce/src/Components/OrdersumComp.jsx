@@ -29,7 +29,7 @@ const OrdersumComp = () => {
                 >
                   -
                 </button>
-                <input type="number" value={item.quantity} readOnly />
+                <input className="qtnles" type="number" value={item.quantity} readOnly />
                 <button
                   className="qty-btn plus"
                   onClick={() => increaseQty(item.id)}

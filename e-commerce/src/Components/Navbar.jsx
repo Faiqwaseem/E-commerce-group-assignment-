@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router";
+import ProductContext from "../Context/ProductContext";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef(null);
   const toggleRef = useRef(null);
-
+const { cartItems } = useContext(ProductContext);
   // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -65,7 +66,10 @@ const Navbar = () => {
             {/* <button className="icon-btn cart">
               <AddShoppingCartIcon /><span className="badge">3</span>
             </button> */}
-                <Link className="icon-btn cart mycaricon" to="/oderSummary"> <AddShoppingCartIcon /></Link>
+            <Link  className={`nav-cart ${cartItems.length > 0 ? "active" : ""}`}
+              to="/oderSummary" > <AddShoppingCartIcon /> {cartItems.length > 0 && (
+                <span className="cart-count">{cartItems.length}</span>
+              )}</Link>
             <button
               className={`icon-btn hamburger ${menuOpen ? "open" : ""}`}
               onClick={() => setMenuOpen(!menuOpen)}
