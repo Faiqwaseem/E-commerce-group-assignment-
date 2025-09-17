@@ -10,7 +10,7 @@ import {
   Chip,
 } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-
+import Review from '../Components/Review'
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import { useEffect } from "react";
@@ -166,6 +166,7 @@ const Detail = () => {
           </Box>
         </CardContent>
       </Card>
+      <Review />
     </Container>
   );
 };

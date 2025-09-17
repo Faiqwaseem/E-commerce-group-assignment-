@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useNavigate } from "react-router";
 import ProductSlider from "../Components/ProductSlider";
-import "../assets/css/responsive.css";
 import FetchProduct from "../Services/FetchProduct";
 import { useQuery } from "@tanstack/react-query";
 import { NavLink } from "react-router";
-import { useSelector, useDispatch } from "react-redux";
-import { addCart } from "../Redux/Slices/OrderItemSlice";
+import ProductContext from "../Context/ProductContext";
 const Home = () => {
-  const dispatch = useDispatch();
-  const { OrderPro } = useSelector((state) => state.OrderItem)
-  console.log("OrderPro",)
-
-
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  const navigate = useNavigate()
+  const { addToCart } = useContext(ProductContext)
   // Hero banners
   const banners = [
     {
@@ -55,6 +49,8 @@ const Home = () => {
   });
   const products = data?.products || [];
   console.log(products);
+
+
   return (
     <div>
 
@@ -68,7 +64,7 @@ const Home = () => {
         <div className="hero-content">
           <h1>{banners[currentSlide].title}</h1>
           <p>{banners[currentSlide].subtitle}</p>
-          <button className="shop-btn"><Link className="LinkShop" to="/shop">Shop Now</Link></button>
+          <button className="shop-btn" onClick={() => navigate("/shop")}>Shop Now</button>
 
         </div>
       </section>
@@ -89,12 +85,14 @@ const Home = () => {
               <h3>{product.title}</h3>
               <p className="price">{product.price}</p>
               <div className="btn-group">
-                <button className="cart-btn" onClick={() => dispatch(addCart())}>Add to Cart</button>
-                <button className="order-btn">Buy Now</button>
+                <button className="cart-btn"
+                  onClick={() => addToCart(product)} >Add to Cart</button>
+                <button className="order-btn" onClick={() => { addToCart(product); navigate('/oderSummary') }}>Buy Now</button>
               </div>
             </div>
           ))}
         </div>
+
 
         {/* ✅ Slider */}
 

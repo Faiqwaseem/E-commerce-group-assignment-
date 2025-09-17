@@ -1,8 +1,6 @@
 import "./assets/css/responsive.css";
 import "./assets/css/odersummary.css";
 import "./App.css";
-import { Provider } from 'react-redux'
-import Store from "./Redux/Store";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -17,13 +15,16 @@ import {
 } from "@tanstack/react-query";
 import Detail from "./Pages/Detail";
 import AppLayout from "./Components/AppLayout";
+import { ProductProvider } from "./Context/ProductContext";
+import { useState } from "react";
 
 
 function App() {
 
-
+  const [product, setProduct] = useState(null)
 
   const query = new QueryClient();
+
   let router = createBrowserRouter([
     {
       path: "/",
@@ -41,11 +42,15 @@ function App() {
   ]);
   return (
     <>
-      <Provider store={Store}>
-        <QueryClientProvider client={query}>
+      <QueryClientProvider client={query}>
+        <ProductProvider >
+
+
           <RouterProvider router={router} />
-        </QueryClientProvider>
-      </Provider>
+
+        </ProductProvider>
+
+      </QueryClientProvider>
     </>
   );
 }

@@ -97,6 +97,9 @@
         .checkout-btn:hover {
             background: #e65c00;
         }
+        .mycaricon{
+            color: black !important;
+        }
 
         /* ✅ Responsive */
         @media (max-width: 600px) {

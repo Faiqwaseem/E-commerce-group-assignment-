@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
-
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef(null);
@@ -42,10 +42,7 @@ const Navbar = () => {
             >
               <Link className="nav-list" to="/">Home</Link>
               <Link className="nav-list" to="/shop">Shop</Link>
-              <Link className="nav-list" onClick={(e) => {
-                e.preventDefault(); // navigation rokti hai
-                alert("This Page is Not Active!");
-              }} to="/deals">Deals</Link>
+              <Link className="nav-list" to="/deals">Deals</Link>
               <Link className="nav-list" onClick={(e) => {
                 e.preventDefault(); // navigation rokti hai
                 alert("This Page is Not Active!");
@@ -54,7 +51,6 @@ const Navbar = () => {
                 e.preventDefault(); // navigation rokti hai
                 alert("This Page is Not Active!");
               }} to="/contact">Contact</Link>
-              <Link className="nav-list" to="/oderSummary">Order summary</Link>
             </div>
           </nav>
 
@@ -66,10 +62,10 @@ const Navbar = () => {
               <input type="search" placeholder="Search products" />
             </form>
             <button className="icon-btn">❤</button>
-            <button className="icon-btn cart">
-              🛒<span className="badge">3</span>
-            </button>
-            <button className="icon-btn">👤</button>
+            {/* <button className="icon-btn cart">
+              <AddShoppingCartIcon /><span className="badge">3</span>
+            </button> */}
+                <Link className="icon-btn cart mycaricon" to="/oderSummary"> <AddShoppingCartIcon /></Link>
             <button
               className={`icon-btn hamburger ${menuOpen ? "open" : ""}`}
               onClick={() => setMenuOpen(!menuOpen)}
