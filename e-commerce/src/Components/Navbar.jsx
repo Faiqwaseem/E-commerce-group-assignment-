@@ -67,7 +67,7 @@ const { cartItems } = useContext(ProductContext);
               <AddShoppingCartIcon /><span className="badge">3</span>
             </button> */}
             <Link  className={`nav-cart ${cartItems.length > 0 ? "active" : ""}`}
-              to="/oderSummary" > <AddShoppingCartIcon /> {cartItems.length > 0 && (
+              to="/orderSummary" > <AddShoppingCartIcon /> {cartItems.length > 0 && (
                 <span className="cart-count">{cartItems.length}</span>
               )}</Link>
             <button

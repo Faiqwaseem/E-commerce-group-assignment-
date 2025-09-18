@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-
+import React, { useEffect, useRef, useState, useContext } from "react";
+import ProductContext from "../Context/ProductContext";
+import { useNavigate  } from "react-router";
 /*
   Usage:
     import ProductSlider from "../Components/ProductSlider";
@@ -12,6 +13,9 @@ const ProductSlider = ({ products = [], autoplay = true, interval = 3000 }) => {
   const isHovering = useRef(false);
   const touchStartX = useRef(0);
   const touchDeltaX = useRef(0);
+
+const { addToCart } = useContext(ProductContext)
+const navigate = useNavigate()
 
   const [index, setIndex] = useState(0);
   const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView());
@@ -129,8 +133,8 @@ const ProductSlider = ({ products = [], autoplay = true, interval = 3000 }) => {
               <h3>{product.title}</h3>
               <p className="price">{product.price}</p>
              <div className="btn-group">
-              <button className="cart-btn">Add to Cart</button>
-              <button className="order-btn">Buy Now</button>
+              <button className="cart-btn" onClick={()=> addToCart(product)}>Add to Cart</button>
+              <button className="order-btn" onClick={()=> {addToCart(product); navigate('/ordersummary')}}>Buy Now</button>
             </div>
             </div>
           ))}

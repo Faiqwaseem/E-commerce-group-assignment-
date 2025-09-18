@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import Swal from 'sweetalert2'
 
 const ProductContext = createContext();
 
@@ -49,10 +50,58 @@ export const ProductProvider = ({ children }) => {
             })
         ).filter((item) => item.quantity > 0); // remove if qty 0
     };
+// ✅ Proceed checkout
+
+const ProceedTocheckout = () => {
+  if(cartItems.length === 0){
+    Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "You didn't buy anything!",
+});
+  }
+  else if(cartItems){
+    const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: "btn btn-success",
+    cancelButton: "btn btn-danger"
+  },
+  buttonsStyling: false
+});
+swalWithBootstrapButtons.fire({
+  title: "Are you sure?",
+  text: "Do you want to buy something!",
+  icon: "info",
+  showCancelButton: true,
+  confirmButtonText: "yes",
+  cancelButtonText: "No",
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    setCartItems([])
+    swalWithBootstrapButtons.fire({
+      title: "Your order has been successful!",
+      icon: "success"
+    });
+    
+  } 
+  // else if (
+    /* Read more about handling dismissals below */
+  //   result.dismiss === Swal.DismissReason.cancel
+  // ) {
+  //   swalWithBootstrapButtons.fire({
+  //     title: "Cancelled",
+  //     icon: "error"
+  //   });
+  // }
+});
+  }
+}
+
 
     return (
         <ProductContext.Provider
-            value={{ cartItems, addToCart, removeFromCart, increaseQty, decreaseQty }}
+            value={{ cartItems, addToCart, removeFromCart, increaseQty, decreaseQty, ProceedTocheckout }}
         >
             {children}
         </ProductContext.Provider>

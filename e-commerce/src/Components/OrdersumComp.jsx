@@ -2,13 +2,15 @@ import React, { useContext } from "react";
 import ProductContext from "../Context/ProductContext";
 import DeleteIcon from '@mui/icons-material/Delete';
 const OrdersumComp = () => {
-  const { cartItems, removeFromCart, increaseQty, decreaseQty } =
+
+  const { cartItems, removeFromCart, increaseQty, decreaseQty, ProceedTocheckout } =
     useContext(ProductContext);
 
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+
 
   return (
     <section className="cart-container">
@@ -42,7 +44,7 @@ const OrdersumComp = () => {
               className="remove-btn"
               onClick={() => removeFromCart(item.id)}
             >
-             <DeleteIcon />
+              <DeleteIcon />
             </button>
           </div>
         ))}
@@ -53,7 +55,7 @@ const OrdersumComp = () => {
         <p>
           Subtotal: <span id="subtotal">${subtotal.toFixed(2)}</span>
         </p>
-        <button className="checkout-btn">Proceed to Checkout</button>
+        <button className="checkout-btn" onClick={()=> ProceedTocheckout()}>Proceed to Checkout</button>
       </div>
     </section>
   );

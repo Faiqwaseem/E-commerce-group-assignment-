@@ -59,7 +59,7 @@ const Home = () => {
       {/* Hero Banner */}
       <section
         className="hero-banner"
-        style={{ backgroundImage: `url(${banners[currentSlide].image})` }}
+        style={{ marginTop: "93px", backgroundImage: `url(${banners[currentSlide].image})` }}
       >
         <div className="hero-content">
           <h1>{banners[currentSlide].title}</h1>
@@ -87,7 +87,7 @@ const Home = () => {
               <div className="btn-group">
                 <button className="cart-btn"
                   onClick={() => addToCart(product)} >Add to Cart</button>
-                <button className="order-btn" onClick={() => { addToCart(product); navigate('/oderSummary') }}>Buy Now</button>
+                <button className="order-btn" onClick={() => { addToCart(product); navigate('/orderSummary') }}>Buy Now</button>
               </div>
             </div>
           ))}
