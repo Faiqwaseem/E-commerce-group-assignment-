@@ -1,18 +1,20 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 import "../assets/css/responsive.css";
-
+    <Navbar />
 const Contact = () => {
   return (
     <div>
+  
 
-      {/* Hero Section */}
-      <section className="contact-hero">
+      Hero Section
+      {/* <section className="contact-hero">
         <div className="contact-hero-content">
           <h1>Contact Us</h1>
           <p>We’d love to hear from you! Let’s talk.</p>
         </div>
-      </section>
+      </section> */}
 
       {/* Info Section */}
       <section className="contact-info">
@@ -56,6 +58,8 @@ const Contact = () => {
           loading="lazy"
         ></iframe>
       </section>
+
+      {/* <Footer /> */}
     </div>
   );
 };

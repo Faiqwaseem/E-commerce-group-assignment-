@@ -8,6 +8,8 @@ import Shop from "./Pages/Shop";
 import OrderSummary from "./Pages/OrderSummary";
 import Deals from "./Pages/Deals";
 import Contact from "./Pages/Contact";
+import Login from "./Pages/login";
+
 import {
   QueryClient,
   QueryClientProvider,
@@ -25,21 +27,22 @@ function App() {
 
   const query = new QueryClient();
 
-  let router = createBrowserRouter([
-    {
-      path: "/",
-      element: <AppLayout />,
-      children: [
-        { path: "/shop", element: <Shop /> },
-        { path: "/product/:id", element: <Detail /> },
-        { path: "/oderSummary", element: <OrderSummary /> },
-        { path: "/deals", element: <Deals /> },
-        { path: "/", element: <Home /> },
-        { path: "/about", element: <About /> },
-        { path: "/contact", element: <Contact /> },
-      ],
-    },
-  ]);
+let router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      { path: "/shop", element: <Shop /> },
+      { path: "/product/:id", element: <Detail /> },
+      { path: "/oderSummary", element: <OrderSummary /> },
+      { path: "/deals", element: <Deals /> },
+      { path: "/", element: <Home /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
+      { path: "/login", element: <Login /> },
+    ],
+  },
+]);
   return (
     <>
       <QueryClientProvider client={query}>

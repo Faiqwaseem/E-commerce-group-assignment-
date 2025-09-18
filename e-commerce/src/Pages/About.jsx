@@ -6,7 +6,7 @@ import "../assets/css/responsive.css";
 const About = () => {
   return (
     <div>
-  
+      <Navbar />
 
       {/* Hero Section */}
       <section className="about-hero">
@@ -90,6 +90,7 @@ const About = () => {
         <button>Start Shopping</button>
       </section>
 
+      <Footer />
     </div>
   );
 };
