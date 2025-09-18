@@ -38,13 +38,11 @@ const Detail = () => {
       const FetchedData = await fetch(`https://dummyjson.com/products/${id}`);
       return FetchedData.json();
     },
-    initialData: { reviews: [] } 
+    initialData: { reviews: [] },
   });
 
   const product = data || [];
   console.log("data", data);
-  
-
 
   if (!product) {
     return (
@@ -57,10 +55,25 @@ const Detail = () => {
   }
 
   return (
-    <Container maxWidth="md" sx={{ height: "987px", width: "856px", py: 4 }}>
+    <Container
+      // mobile + tablet ke liye best
+      disableGutters // left/right padding remove kar dega
+      sx={{
+        px: { xs: 2, sm: 3, md: 4 }, // custom horizontal padding
+        
+        height: {md:"987px",sm:"1122px"},
+        width: {sm:"412px",md:"100%"},
+        minWidth:"sm",
+        py: 4,
+      }}
+    >
       <Card
         sx={{
           display: "flex",
+          flexDirection: {
+            xs: "column",
+            md: "row",
+          },
           overflow: "hidden",
           boxShadow: 3,
           borderRadius: 2,
@@ -72,9 +85,9 @@ const Detail = () => {
           alt={product.title}
           image={product.images?.[0] || product.thumbnail}
           sx={{
-            height: "278px",
-            width: "389px",
-
+           
+            width: { xs: "100%", md: "289px" },
+            height: { xs: "378px", md: "50%" },
             transition: "0.3s",
             "&:hover": {
               transform: "scale(1.08)",
@@ -187,7 +200,7 @@ const Detail = () => {
           </Box>
         </CardContent>
       </Card>
-      <Review />     
+      <Review />
     </Container>
   );
 };
