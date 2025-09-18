@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
 import "../assets/css/responsive.css";
 
 const Deals = () => {
@@ -57,8 +56,6 @@ const Deals = () => {
           ))}
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

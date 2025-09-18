@@ -1,5 +1,6 @@
 import "./assets/css/responsive.css";
 import "./assets/css/odersummary.css";
+import 'sweetalert2/src/sweetalert2.scss'
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./Pages/Home";
@@ -14,8 +15,8 @@ import {
 
 } from "@tanstack/react-query";
 import Detail from "./Pages/Detail";
-
 import AppLayout from "./Components/AppLayout";
+import { ProductProvider } from "./Context/ProductContext";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 
 
   const query = new QueryClient();
+
   let router = createBrowserRouter([
     {
       path: "/",
@@ -30,7 +32,7 @@ function App() {
       children: [
         { path: "/shop", element: <Shop /> },
         { path: "/product/:id", element: <Detail /> },
-        { path: "/oderSummary", element: <OrderSummary /> },
+        { path: "/orderSummary", element: <OrderSummary /> },
         { path: "/deals", element: <Deals /> },
         { path: "/", element: <Home /> },
         { path: "/about", element: <About /> },
@@ -41,7 +43,13 @@ function App() {
   return (
     <>
       <QueryClientProvider client={query}>
-        <RouterProvider router={router} />
+        <ProductProvider >
+
+
+          <RouterProvider router={router} />
+
+        </ProductProvider>
+
       </QueryClientProvider>
     </>
   );
