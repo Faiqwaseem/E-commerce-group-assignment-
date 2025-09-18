@@ -166,7 +166,7 @@ const Detail = () => {
                 "&:hover": { boxShadow: 3 },
               }}
               onClick={() => {
-                addToCart(product); navigate('/oderSummary')
+                addToCart(product); navigate('/orderSummary')
               }}
             >
               Buy Now
