@@ -52,7 +52,9 @@ const Detail = () => {
   }
 
   return (
+
     <Container maxWidth="md" sx={{ marginTop: 11, height: "987px", width: "856px", py: 4 }}>
+
       <Card
         sx={{
           display: "flex",
@@ -174,6 +176,7 @@ const Detail = () => {
           </Box>
         </CardContent>
       </Card>
+      
       <Review />
     </Container>
   );
