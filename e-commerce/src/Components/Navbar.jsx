@@ -62,14 +62,13 @@ const { cartItems } = useContext(ProductContext);
             <form className="search">
               <input type="search" placeholder="Search products" />
             </form>
-            <button className="icon-btn">❤</button>
-            {/* <button className="icon-btn cart">
-              <AddShoppingCartIcon /><span className="badge">3</span>
-            </button> */}
             <Link  className={`nav-cart ${cartItems.length > 0 ? "active" : ""}`}
               to="/orderSummary" > <AddShoppingCartIcon /> {cartItems.length > 0 && (
                 <span className="cart-count">{cartItems.length}</span>
               )}</Link>
+
+              <button className="loginbtn">Log in</button>
+              <button className="signupbtn">Sign up</button>
             <button
               className={`icon-btn hamburger ${menuOpen ? "open" : ""}`}
               onClick={() => setMenuOpen(!menuOpen)}
