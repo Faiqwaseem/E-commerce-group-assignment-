@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { FaShoppingBag, FaEnvelope, FaLock, FaUser, FaFacebookF, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { useQuery } from '@tanstack/react-query';
 import userFetch from '../Services/userFetch';
-import { useState } from 'react';
-const LoginSign = () => {
-    const [activeForm, setActiveForm] = useState('login');
 
+const LoginSign = () => {
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -16,13 +15,11 @@ const LoginSign = () => {
         })
     }, [])
 
-    const queryResult = useQuery({
-        queryKey: ["user"],
-        queryFn: userFetch,
-    })
-
-    console.log('useQuery result:', queryResult);
-
+    const [activeForm, setActiveForm] = useState('login');
+    const [fullname, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [cPassword, setCpassword] = useState("");
 
     return (
         <div>
@@ -75,27 +72,45 @@ const LoginSign = () => {
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </form> 
 
                     <form className={`form ${activeForm === 'signup' ? 'active' : ""}`} id="signup-form">
                         <div className="input-group">
                             <i className="fas fa-user"></i>
-                            <input type="text" placeholder="Full Name" required />
+                            <input
+                                value={fullname}
+                                onChange={(e) =>
+                                    setFullName(e.target.value)
+                                } type="text" placeholder="Full Name" required />
                         </div>
 
                         <div className="input-group">
                             <i className="fas fa-envelope"></i>
-                            <input type="email" placeholder="Email Address" required />
+                            <input
+                                value={email}
+                                onChange={(e) =>
+                                    setEmail(e.target.value)
+                                } type="email" placeholder="Email Address" required />
                         </div>
 
                         <div className="input-group">
                             <i className="fas fa-lock"></i>
-                            <input type="password" placeholder="Password" required />
+                            <input
+                                value={password}
+                                onChange={(e) =>
+                                    setPassword(e.target.value)
+                                }
+                                type="password" placeholder="Password" required />
                         </div>
 
                         <div className="input-group">
                             <i className="fas fa-lock"></i>
-                            <input type="password" placeholder="Confirm Password" required />
+                            <input
+                                value={cPassword}
+                                onChange={(e) =>
+                                    setCpassword(e.target.value)
+                                }
+                                type="password" placeholder="Confirm Password" required />
                         </div>
 
                         <button type="submit" className="submit-btn">Create Account</button>
