@@ -6,6 +6,14 @@ import { useQuery } from "@tanstack/react-query";
 import { NavLink } from "react-router";
 import ProductContext from "../Context/ProductContext";
 const Home = () => {
+
+useEffect(()=>{
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+},[])
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate()
   const { addToCart } = useContext(ProductContext)
