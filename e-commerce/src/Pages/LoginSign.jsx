@@ -97,6 +97,7 @@ const LoginSign = () => {
                             <i className="fas fa-lock"></i>
                             <input
                                 value={password}
+                                
                                 onChange={(e) =>
                                     setPassword(e.target.value)
                                 }
