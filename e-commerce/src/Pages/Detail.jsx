@@ -16,7 +16,7 @@ import { useParams } from "react-router";
 import { useEffect } from "react";
 import { useContext } from "react";
 import ProductContext from "../Context/ProductContext";
- import { useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 const Detail = () => {
   const { addToCart } = useContext(ProductContext);
@@ -52,7 +52,9 @@ const Detail = () => {
   }
 
   return (
-    <Container maxWidth="md" sx={{ height: "987px", width: "856px", py: 4 }}>
+
+    <Container maxWidth="md" sx={{ marginTop: 11, height: "987px", width: "856px", py: 4 }}>
+
       <Card
         sx={{
           display: "flex",
@@ -165,8 +167,8 @@ const Detail = () => {
                 boxShadow: 2,
                 "&:hover": { boxShadow: 3 },
               }}
-              onClick={()=> {addToCart(product); navigate('/oderSummary')
-                
+              onClick={() => {
+                addToCart(product); navigate('/orderSummary')
               }}
             >
               Buy Now
@@ -174,6 +176,7 @@ const Detail = () => {
           </Box>
         </CardContent>
       </Card>
+      
       <Review />
     </Container>
   );

@@ -1,16 +1,21 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router";
+
 import ProductContext from "../Context/ProductContext";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FetchProduct from "../Services/FetchProduct";
 import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
+
+  const navigate = useNavigate()
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const navRef = useRef(null);
   const toggleRef = useRef(null);
+
   const searchRef = useRef(null);
   const navigate = useNavigate();
 
@@ -22,6 +27,7 @@ const Navbar = () => {
     queryFn: FetchProduct,
   });
   const products = data?.products || [];
+
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -125,7 +131,11 @@ const Navbar = () => {
               )}
             </Link>
 
-            {/* Hamburger */}
+           
+
+
+            <button className="loginbtn" onClick={() => navigate('/loginSign')}>Log in</button>
+
             <button
               className={`icon-btn hamburger ${menuOpen ? "open" : ""}`}
               onClick={() => setMenuOpen(!menuOpen)}

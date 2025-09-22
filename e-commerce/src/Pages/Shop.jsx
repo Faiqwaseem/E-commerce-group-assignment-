@@ -67,7 +67,7 @@ const Shop = () => {
   }
 
   return (
-    <Box sx={{ padding: 4, backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
+    <Box sx={{ padding: 4, marginTop: 11, backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
       <Typography variant="h3" sx={{ fontWeight: 600 }} align="center" gutterBottom>
         Shop Our Products
       </Typography>
@@ -194,10 +194,12 @@ const Shop = () => {
                     textTransform: "none",
                     transition: "0.3s",
                   }}
+
                   onClick={() => {
                     addToCart(product);
                     navigate("/oderSummary");
                   }}
+
                 >
                   Buy Now
                 </Button>

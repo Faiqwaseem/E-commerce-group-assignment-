@@ -10,6 +10,14 @@ import ProductContext from "../Context/ProductContext";
 import Preloader from "../Components/Preloader";
 
 const Home = () => {
+
+useEffect(()=>{
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+},[])
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loading, setLoading] = useState(true); // Loader state
   const navigate = useNavigate();
@@ -70,7 +78,7 @@ const banners = [
       {/* Hero Banner */}
       <section
         className="hero-banner"
-        style={{ backgroundImage: `url(${banners[currentSlide].image})` }}
+        style={{ marginTop: "93px", backgroundImage: `url(${banners[currentSlide].image})` }}
       >
         <div className="hero-content">
           <h1>{banners[currentSlide].title}</h1>
@@ -94,6 +102,7 @@ const banners = [
               <h3>{product.title}</h3>
               <p className="price">{product.price}</p>
               <div className="btn-group">
+
                 <button
                   className="cart-btn"
                   onClick={() => addToCart(product)}
@@ -109,6 +118,7 @@ const banners = [
                 >
                   Buy Now
                 </button>
+
               </div>
             </div>
           ))}
