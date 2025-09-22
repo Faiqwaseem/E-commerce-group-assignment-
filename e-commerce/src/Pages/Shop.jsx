@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import {
   Grid,
-  Chip,
   CardMedia,
   CardContent,
   Typography,
@@ -9,11 +8,14 @@ import {
   Box,
   Paper,
   Button,
+  Chip
 } from "@mui/material";
-
 import { NavLink } from "react-router";
 import FetchProduct from "../Services/FetchProduct";
+
 import { useContext, useEffect, useState } from "react";
+
+
 import ProductContext from "../Context/ProductContext";
 import { useNavigate } from "react-router";
 import CarouselsShop from "../Components/CarouselsShop";
@@ -33,10 +35,23 @@ const Shop = () => {
     queryKey: ["products"],
     queryFn: FetchProduct,
   });
+
   const navigate = useNavigate();
   const { addToCart } = useContext(ProductContext);
+
   const products = data?.products || [];
-  console.log(products);
+
+  // ✅ Get unique categories
+  const categories = ["All", ...new Set(products.map((p) => p.category))];
+
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  // ✅ Filter products by category
+  const filteredProducts =
+    selectedCategory === "All"
+      ? products
+      : products.filter((p) => p.category === selectedCategory);
+
   if (isLoading) {
     return (
       <Box
@@ -85,17 +100,53 @@ const Shop = () => {
       >
         Shop Our Products
       </Typography>
+
+      {/* ✅ Category Navbar */}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          gap: 2,
+          flexWrap: "wrap",
+          mb: 4,
+        }}
+      >
+        {categories.map((cat) => (
+          <Chip
+            key={cat}
+            label={cat}
+            clickable
+            onClick={() => setSelectedCategory(cat)}
+            sx={{
+              px: 2,
+              py: 1,
+              fontWeight: "bold",
+              borderRadius: "20px",
+              backgroundColor:
+                selectedCategory === cat ? "#2563EB" : "#E5E7EB",
+              color: selectedCategory === cat ? "#fff" : "#333",
+              "&:hover": {
+                backgroundColor:
+                  selectedCategory === cat ? "#1E40AF" : "#d1d5db",
+              },
+              transition: "0.3s",
+            }}
+          />
+        ))}
+      </Box>
+
+      {/* ✅ Products Grid */}
       <Grid container justifyContent="center" spacing={3}>
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <Grid
             sx={{
               height: "461px",
               minHeight: "360px",
               overflow: "hidden",
               boxShadow: `
-          0 0 25px rgba(255,255,255,0.7),
-          0 2px 8px rgba(0,0,0,0.15)      
-        `,
+                0 0 25px rgba(255,255,255,0.7),
+                0 2px 8px rgba(0,0,0,0.15)      
+              `,
               width: "432px",
               borderRadius: "13px",
               border: "1px solid #E0DDDDFF",
@@ -150,7 +201,7 @@ const Shop = () => {
                   variant="h6"
                   sx={{ color: "#E74C3C", fontWeight: "bold" }}
                 >
-                  {product.price}$
+                  ${product.price}
                 </Typography>
               </CardContent>
               <Box sx={{ display: "flex", mt: 4 }}>
@@ -170,17 +221,19 @@ const Shop = () => {
                     color: "white",
                     px: 2.7,
                     ml: 1.3,
-
                     mr: 1,
                     py: 1,
                     boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
                     textTransform: "none",
                     transition: "0.3s",
                   }}
+
+
                   onClick={() => {
                     addToCart(product);
-                    navigate("/orderSummary");
+                    navigate("/oderSummary");
                   }}
+                  
                 >
                   Buy Now
                 </Button>
@@ -194,7 +247,6 @@ const Shop = () => {
                     },
                     border: "none",
                     fontWeight: "bold",
-
                     fontSize: "13.6px",
                     borderRadius: "7px",
                     width: "233px",
@@ -202,7 +254,6 @@ const Shop = () => {
                     px: 3,
                     mr: 1,
                     ml: 1.3,
-
                     py: 1,
                     boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
                     transition: "0.3s",

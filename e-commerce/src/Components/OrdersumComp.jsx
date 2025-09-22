@@ -1,8 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import ProductContext from "../Context/ProductContext";
 import DeleteIcon from '@mui/icons-material/Delete';
 const OrdersumComp = () => {
-
+useEffect(()=>{
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+},[])
   const { cartItems, removeFromCart, increaseQty, decreaseQty, ProceedTocheckout } =
     useContext(ProductContext);
 
