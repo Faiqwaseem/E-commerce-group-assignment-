@@ -102,7 +102,7 @@ const navigate = useNavigate()
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <h3 className="section-title">🔥 Best Sellers</h3>
+      <h3 className="section-title">Trending Product</h3>
 
       {/* Prev / Next buttons */}
 

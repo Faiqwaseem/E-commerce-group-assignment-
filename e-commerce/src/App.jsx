@@ -10,6 +10,9 @@ import Shop from "./Pages/Shop";
 import OrderSummary from "./Pages/OrderSummary";
 import Deals from "./Pages/Deals";
 import Contact from "./Pages/Contact";
+
+
+
 import LoginSign from "./Pages/LoginSign";
 import {
   QueryClient,
@@ -27,6 +30,7 @@ function App() {
 
   const query = new QueryClient();
 
+
   let router = createBrowserRouter([
     {
       path: "/",
@@ -43,6 +47,7 @@ function App() {
     },
      { path: "/loginSign", element: <LoginSign /> },
   ]);
+
   return (
     <>
       <QueryClientProvider client={query}>
