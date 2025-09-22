@@ -129,6 +129,7 @@ const Navbar = () => {
               {cartItems.length > 0 && (
                 <span className="cart-count">{cartItems.length}</span>
               )}
+
             </Link>
 
            

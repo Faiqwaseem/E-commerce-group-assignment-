@@ -80,6 +80,7 @@ const banners = [
         className="hero-banner"
         style={{ marginTop: "93px", backgroundImage: `url(${banners[currentSlide].image})` }}
       >
+
         <div className="hero-content">
           <h1>{banners[currentSlide].title}</h1>
           <p>{banners[currentSlide].subtitle}</p>

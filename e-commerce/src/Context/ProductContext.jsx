@@ -28,10 +28,12 @@ export const ProductProvider = ({ children }) => {
     });
   };
 
+
   // ✅ remove one completely
   const removeFromCart = (id) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
+
 
   // ✅ increase qty
   const increaseQty = (id) => {
