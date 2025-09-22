@@ -13,12 +13,28 @@ import {
 
 import { NavLink } from "react-router";
 import FetchProduct from "../Services/FetchProduct";
+import { useContext, useEffect, useState } from "react";
+import ProductContext from "../Context/ProductContext";
+import { useNavigate } from "react-router";
+import CarouselsShop from "../Components/CarouselsShop";
 
 const Shop = () => {
+ 
+  
+
+  useEffect(() => {
+    // page load hone par top se start karo
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // smooth scroll optional
+    });
+  }, []);
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["products"],
     queryFn: FetchProduct,
   });
+  const navigate = useNavigate();
+  const { addToCart } = useContext(ProductContext);
   const products = data?.products || [];
   console.log(products);
   if (isLoading) {
@@ -50,8 +66,23 @@ const Shop = () => {
   }
 
   return (
-    <Box sx={{ padding: 4, backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
-      <Typography variant="h3" sx={{fontWeight:600}} align="center" gutterBottom>
+    <Box
+      sx={{
+        padding: 4,
+        boxSizing: "border-box",
+        backgroundColor: "#f5f5f5",
+        minHeight: "100vh",
+      }}
+    >
+      <CarouselsShop />
+     
+
+      <Typography
+        variant="h3"
+        sx={{ fontWeight: 600 }}
+        align="center"
+        gutterBottom
+      >
         Shop Our Products
       </Typography>
       <Grid container justifyContent="center" spacing={3}>
@@ -98,7 +129,11 @@ const Shop = () => {
                 }}
               />
               <CardContent sx={{ p: 1 }}>
-                <Typography sx={{fontWeight:600}} variant="h6" component="div">
+                <Typography
+                  sx={{ fontWeight: 600 }}
+                  variant="h6"
+                  component="div"
+                >
                   {product.title.slice(0, 36)}
                 </Typography>
                 <Typography variant="subtitle1" color="text.secondary">
@@ -107,7 +142,7 @@ const Shop = () => {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ marginY: 1 ,}}
+                  sx={{ marginY: 1 }}
                 >
                   {product.description.slice(0, 101)}
                 </Typography>
@@ -142,8 +177,12 @@ const Shop = () => {
                     textTransform: "none",
                     transition: "0.3s",
                   }}
+                  onClick={() => {
+                    addToCart(product);
+                    navigate("/orderSummary");
+                  }}
                 >
-                  Add to Cart
+                  Buy Now
                 </Button>
                 <Button
                   variant="outlined"

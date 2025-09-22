@@ -8,21 +8,19 @@ import {
   Container,
   Divider,
   Chip,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Avatar,
-  Paper,
 } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-
+import Review from '../Components/Review'
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import { useEffect } from "react";
-import Review from "../Components/Review";
+import { useContext } from "react";
+import ProductContext from "../Context/ProductContext";
+import { useNavigate } from "react-router";
 
 const Detail = () => {
+  const { addToCart } = useContext(ProductContext);
+  const navigate = useNavigate()
   const { id } = useParams();
   useEffect(() => {
     // page load hone par top se start karo
@@ -62,7 +60,7 @@ const Detail = () => {
         px: { xs: 2, sm: 3, md: 4 }, // custom horizontal padding
         
         height: {md:"987px",sm:"1122px"},
-        width: {sm:"412px",md:"100%"},
+        width: {sm:"489px",md:"100%"},
         minWidth:"sm",
         py: 4,
       }}
@@ -83,6 +81,7 @@ const Detail = () => {
         <CardMedia
           component="img"
           alt={product.title}
+          height="400"
           image={product.images?.[0] || product.thumbnail}
           sx={{
            
@@ -156,11 +155,7 @@ const Detail = () => {
           {/* Additional Details (Optional) */}
           {product.brand && (
             <Box sx={{ mt: 2 }}>
-              <Typography
-                variant="subtitle2"
-                sx={{ fontSize: "18px" }}
-                color="textSecondary"
-              >
+              <Typography variant="subtitle2" color="textSecondary">
                 Brand: {product.brand}
               </Typography>
             </Box>
@@ -168,12 +163,8 @@ const Detail = () => {
 
           {product.rating && (
             <Box sx={{ mt: 1 }}>
-              <Typography
-                variant="subtitle2"
-                sx={{ fontSize: "18px" }}
-                color="textSecondary"
-              >
-                Rating:{product.rating} / 5
+              <Typography variant="subtitle2" color="textSecondary">
+                Rating: {product.rating} / 5
               </Typography>
             </Box>
           )}
@@ -189,13 +180,15 @@ const Detail = () => {
               sx={{
                 px: 4,
                 py: 1.5,
-                borderRadius: "7px",
                 fontSize: "1.1rem",
                 boxShadow: 2,
                 "&:hover": { boxShadow: 3 },
               }}
+              onClick={() => {
+                addToCart(product); navigate('/oderSummary')
+              }}
             >
-              Add to Cart
+              Buy Now
             </Button>
           </Box>
         </CardContent>

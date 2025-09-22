@@ -1,20 +1,20 @@
-import React from 'react'
+// src/Components/Footer.jsx
+import React from "react";
+import "../assets/css/responsive.css";
 
 const Footer = () => {
-    return (
-        <div>
-            <footer>
+  return (
+
+    <footer>
       <div className="footer-container">
-        {/* Logo Section */}
         <div>
           <div className="footer-logo">
             <div className="logo">EC</div>
-            <span style={{ fontWeight: 700, fontSize: "18px" }}>ShopMate</span>
+            <span style={{ fontWeight: 700, fontSize: '18px' }}>ShopMate</span>
           </div>
-          <p style={{ color: "#94a3b8", fontSize: "14px" }}>
+          <p style={{ color: '#94a3b8', fontSize: '14px' }}>
             Your trusted e-commerce partner for essentials and lifestyle products.
           </p>
-          {/* Social Links */}
           <div className="social-links">
             <a href="#">🌐</a>
             <a href="#">📘</a>
@@ -23,7 +23,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Shop Section */}
         <div className="footer-section">
           <h4>Shop</h4>
           <a href="#">New Arrivals</a>
@@ -32,7 +31,6 @@ const Footer = () => {
           <a href="#">Gift Cards</a>
         </div>
 
-        {/* Company Section */}
         <div className="footer-section">
           <h4>Company</h4>
           <a href="#">About Us</a>
@@ -41,7 +39,6 @@ const Footer = () => {
           <a href="#">Press</a>
         </div>
 
-        {/* Help Section */}
         <div className="footer-section">
           <h4>Help</h4>
           <a href="#">Contact</a>
@@ -50,7 +47,6 @@ const Footer = () => {
           <a href="#">Shipping</a>
         </div>
 
-        {/* Newsletter */}
         <div className="footer-section newsletter">
           <h4>Newsletter</h4>
           <input type="email" placeholder="Enter your email" />
@@ -62,9 +58,7 @@ const Footer = () => {
         © 2025 ShopMate. All rights reserved. | Privacy Policy | Terms
       </div>
     </footer>
+  );
+};
 
-        </div>
-    )
-}
-
-export default Footer
+export default Footer;

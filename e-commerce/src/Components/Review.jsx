@@ -13,7 +13,7 @@ import { useParams } from "react-router";
 
 const Review = () => {
   const { id } = useParams();
-  const { data, isLoading, isError, error } = useQuery({
+  const { data,} = useQuery({
     queryKey: ["Review", id],
     queryFn: async () => {
       const FetchedData = await fetch(`https://dummyjson.com/products/${id}`);

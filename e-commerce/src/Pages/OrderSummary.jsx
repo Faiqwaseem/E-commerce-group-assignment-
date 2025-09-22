@@ -1,15 +1,13 @@
 import React from 'react'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
-const Categories = () => {
+import OrdersumComp from '../Components/OrdersumComp'
+const OrderSummary = () => {
     return (
         <div>
-         
-            <h1>Categories</h1>
-
-            
+            <OrdersumComp />
         </div>
     )
 }
 
-export default Categories
+export default OrderSummary
