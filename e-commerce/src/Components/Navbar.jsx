@@ -17,7 +17,7 @@ const Navbar = () => {
   const toggleRef = useRef(null);
 
   const searchRef = useRef(null);
-  const navigate = useNavigate();
+ 
 
   const { cartItems } = useContext(ProductContext);
 
@@ -123,7 +123,7 @@ const Navbar = () => {
             {/* Cart */}
             <Link
               className={`nav-cart ${cartItems.length > 0 ? "active" : ""}`}
-              to="/oderSummary"
+              to="/orderSummary"
             >
               <AddShoppingCartIcon />
               {cartItems.length > 0 && (
