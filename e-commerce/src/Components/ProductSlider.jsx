@@ -98,7 +98,7 @@ const ProductSlider = ({ products = [], autoplay = true, interval = 3000 }) => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <h3 className="section-title">🔥 Best Sellers</h3>
+      <h3 className="section-title">Trending Product</h3>
 
       {/* Prev / Next buttons */}
 
