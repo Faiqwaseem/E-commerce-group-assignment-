@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import ProductContext from "../Context/ProductContext";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const Navbar = () => {
+
+  const navigate = useNavigate()
+
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef(null);
   const toggleRef = useRef(null);
-const { cartItems } = useContext(ProductContext);
+  const { cartItems } = useContext(ProductContext);
   // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -44,14 +48,8 @@ const { cartItems } = useContext(ProductContext);
               <Link className="nav-list" to="/">Home</Link>
               <Link className="nav-list" to="/shop">Shop</Link>
               <Link className="nav-list" to="/deals">Deals</Link>
-              <Link className="nav-list" onClick={(e) => {
-                e.preventDefault(); // navigation rokti hai
-                alert("This Page is Not Active!");
-              }} to="/about">About</Link>
-              <Link className="nav-list" onClick={(e) => {
-                e.preventDefault(); // navigation rokti hai
-                alert("This Page is Not Active!");
-              }} to="/contact">Contact</Link>
+              <Link className="nav-list" to="/about">About</Link>
+              <Link className="nav-list" to="/contact">Contact</Link>
             </div>
           </nav>
 
@@ -62,14 +60,12 @@ const { cartItems } = useContext(ProductContext);
             <form className="search">
               <input type="search" placeholder="Search products" />
             </form>
-            <button className="icon-btn">❤</button>
-            {/* <button className="icon-btn cart">
-              <AddShoppingCartIcon /><span className="badge">3</span>
-            </button> */}
-            <Link  className={`nav-cart ${cartItems.length > 0 ? "active" : ""}`}
+            <Link className={`nav-cart ${cartItems.length > 0 ? "active" : ""}`}
               to="/orderSummary" > <AddShoppingCartIcon /> {cartItems.length > 0 && (
                 <span className="cart-count">{cartItems.length}</span>
               )}</Link>
+
+            <button className="loginbtn" onClick={() => navigate('/loginSign')}>Log in</button>
             <button
               className={`icon-btn hamburger ${menuOpen ? "open" : ""}`}
               onClick={() => setMenuOpen(!menuOpen)}

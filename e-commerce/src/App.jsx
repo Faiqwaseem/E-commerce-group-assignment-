@@ -1,4 +1,5 @@
 import "./assets/css/responsive.css";
+import './assets/css/loginSign.css'
 import "./assets/css/odersummary.css";
 import 'sweetalert2/src/sweetalert2.scss'
 import "./App.css";
@@ -9,6 +10,7 @@ import Shop from "./Pages/Shop";
 import OrderSummary from "./Pages/OrderSummary";
 import Deals from "./Pages/Deals";
 import Contact from "./Pages/Contact";
+import LoginSign from "./Pages/LoginSign";
 import {
   QueryClient,
   QueryClientProvider,
@@ -39,6 +41,7 @@ function App() {
         { path: "/contact", element: <Contact /> },
       ],
     },
+     { path: "/loginSign", element: <LoginSign /> },
   ]);
   return (
     <>
