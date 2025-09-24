@@ -30,7 +30,7 @@ const LoginSign = () => {
             return;
         }
         const getData = localStorage.getItem('newUser')
-        if(!getData){
+        if (!getData) {
             alert("No User Save")
             return;
         }
@@ -38,12 +38,12 @@ const LoginSign = () => {
         const parsedData = getData ? JSON.parse(getData) : null
         console.log(parsedData)
 
-        if(parsedData.email === userEmail && parsedData.password === userPassword){
+        if (parsedData.email === userEmail && parsedData.password === userPassword) {
             alert("Login successfull")
             navigate('/')
-        }else {
-    alert("Invalid credentials");
-  }
+        } else {
+            alert("Invalid credentials");
+        }
 
 
         // try {

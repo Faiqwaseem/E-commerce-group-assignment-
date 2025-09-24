@@ -4,15 +4,20 @@ import Swal from 'sweetalert2'
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
+
   const [cartItems, setCartItems] = useState([]);
+
 
   // ✅ add to cart
   const addToCart = (item) => {
+
+
     const getData = localStorage.getItem('newUser')
     if (!getData) {
       alert("Please Log in Your Account")
       return;
     }
+
     setCartItems((prev) => {
       // check if already exists
       const existing = prev.find((p) => p.id === item.id);

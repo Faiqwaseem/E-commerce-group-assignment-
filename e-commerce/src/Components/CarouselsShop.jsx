@@ -1,39 +1,33 @@
 import Carousel from 'react-bootstrap/Carousel';
-
+import bannershop1 from '../assets/images/shop1.png'
+import bannershop2 from '../assets/images/shop2.png'
+import bannershop3 from '../assets/images/shop3.png'
 function CarouselsShop() {
   return (
-    <Carousel data-bs-theme="dark" >
-      <Carousel.Item>
+    <Carousel>
+      <Carousel.Item interval={1000}>
         <img
-          className="d-block w-100"
-          src= "https://t3.ftcdn.net/jpg/04/65/46/52/360_F_465465254_1pN9MGrA831idD6zIBL7q8rnZZpUCQTy.jpg"
+          className="banner-img d-block w-100"
+          src={bannershop1}
           alt="First slide"
         />
-        
+
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item interval={500}>
         <img
-          className="d-block w-100"
-          src="https://static.vecteezy.com/system/resources/previews/002/006/774/non_2x/paper-art-shopping-online-on-smartphone-and-new-buy-sale-promotion-backgroud-for-banner-market-ecommerce-free-vector.jpg"
+          className="banner-img d-block w-100"
+          src={bannershop2}
           alt="Second slide"
         />
-       
+
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="https://img.freepik.com/free-vector/flat-supermarket-twitch-banner_23-2149355376.jpg?semt=ais_incoming&w=740&q=80"
+          className="banner-img d-block w-100"
+          src={bannershop3}
           alt="Third slide"
         />
-        
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://img.freepik.com/free-psd/black-friday-super-sale-facebook-cover-banner-template_120329-5177.jpg?semt=ais_incoming&w=740&q=80"
-          alt="Third slide"
-        />
-        
+
       </Carousel.Item>
     </Carousel>
   );

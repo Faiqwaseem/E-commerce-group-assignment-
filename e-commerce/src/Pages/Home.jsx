@@ -5,12 +5,10 @@ import FetchProduct from "../Services/FetchProduct";
 import { useQuery } from "@tanstack/react-query";
 import { NavLink } from "react-router";
 import ProductContext from "../Context/ProductContext";
-
-// 🟢 Preloader import
-import Preloader from "../Components/Preloader";
+import CarouselHome from "../Components/carouselhome";
 
 const Home = () => {
-
+const { addToCart } = useContext(ProductContext)
 useEffect(()=>{
   window.scrollTo({
     top: 0,
@@ -19,10 +17,10 @@ useEffect(()=>{
 },[])
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [loading, setLoading] = useState(true); // Loader state
+  // const [loading, setLoading] = useState(true); // Loader state
   const navigate = useNavigate();
 
-  // Hero banners
+
  // Hero banners
 const banners = [
   {
@@ -46,15 +44,8 @@ const banners = [
 ];
 
 
-  // Loader timeout
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 5000); // 3 sec preloader
-    return () => clearTimeout(timer);
-  }, []);
 
-  // Auto-slide logic
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % banners.length);
@@ -69,14 +60,12 @@ const banners = [
   });
   const products = data?.products || [];
 
-  if (loading) {
-    return <Preloader />; // Show preloader until loading = false
-  }
+ 
 
   return (
     <div>
       {/* Hero Banner */}
-      <section
+      {/* <section
         className="hero-banner"
         style={{ marginTop: "93px", backgroundImage: `url(${banners[currentSlide].image})` }}
       >
@@ -88,8 +77,8 @@ const banners = [
             Shop Now
           </button>
         </div>
-      </section>
-
+      </section> */}
+<CarouselHome />
       {/* Product Grid */}
       <section className="featured-section">
         <h2 className="section-title">All Products</h2>

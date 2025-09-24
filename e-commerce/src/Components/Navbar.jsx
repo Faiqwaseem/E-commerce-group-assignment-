@@ -17,7 +17,7 @@ const Navbar = () => {
   const toggleRef = useRef(null);
 
   const searchRef = useRef(null);
- 
+
 
   const { cartItems } = useContext(ProductContext);
 
@@ -132,7 +132,7 @@ const Navbar = () => {
 
             </Link>
 
-           
+
 
 
             <button className="loginbtn" onClick={() => navigate('/loginSign')}>Log in</button>
