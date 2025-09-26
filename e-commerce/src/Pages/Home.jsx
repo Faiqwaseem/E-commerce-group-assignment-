@@ -60,7 +60,8 @@ const banners = [
   });
   const products = data?.products || [];
 
- 
+ const getData = localStorage.getItem('newUser')
+ console.log(getData)
 
   return (
     <div>
@@ -103,7 +104,7 @@ const banners = [
                   className="order-btn"
                   onClick={() => {
                     addToCart(product);
-                    navigate("/orderSummary");
+                   {getData ? navigate("/orderSummary"): navigate("/loginSign")};
                   }}
                 >
                   Buy Now

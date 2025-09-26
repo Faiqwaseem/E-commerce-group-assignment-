@@ -13,10 +13,15 @@ export const ProductProvider = ({ children }) => {
 
 
     const getData = localStorage.getItem('newUser')
-    if (!getData) {
-      alert("Please Log in Your Account")
-      return;
-    }
+      if (!getData) {
+        Swal.fire({
+          icon: "error",
+          // title: "Sign Up Please",
+          text: "Please Log in Your Account",
+        });
+        return;
+      }
+     
 
     setCartItems((prev) => {
       // check if already exists

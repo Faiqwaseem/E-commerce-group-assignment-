@@ -13,7 +13,7 @@ function CarouselsShop() {
         />
 
       </Carousel.Item>
-      <Carousel.Item interval={500}>
+      <Carousel.Item interval={300}>
         <img
           className="banner-img d-block w-100"
           src={bannershop2}

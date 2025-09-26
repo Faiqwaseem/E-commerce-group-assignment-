@@ -29,7 +29,7 @@ body {
 .banner-img {
 
   margin-top: 90px;
-  height: 400px !important;
+  height: 500px !important;
   /* apni height */
   object-fit: cover;
   /* image distort na ho */
@@ -197,6 +197,32 @@ body {
   font-size: 22px;
   cursor: pointer;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 70px; /* header ke neeche */
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: var(--shadow);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block; /* mobile me show */
+  }
+}
+
 
 /* ===== HERO BANNER ===== */
 .hero-banner {
@@ -1287,6 +1313,7 @@ footer {
 
 /* Sections */
 .about-section {
+  margin-top: 50px;
   padding: 4rem 2rem;
   text-align: center;
 }

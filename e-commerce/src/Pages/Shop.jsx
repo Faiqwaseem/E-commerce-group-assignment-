@@ -79,7 +79,7 @@ const Shop = () => {
       </Box>
     );
   }
-
+const getData = localStorage.getItem('newUser')
   return (
     
     // <Box
@@ -337,7 +337,7 @@ const Shop = () => {
                         className="order-btn"
                         onClick={() => {
                           addToCart(product);
-                          navigate("/orderSummary");
+                          {getData ? navigate("/orderSummary"): navigate("/loginSign")};
                         }}
                       >
                         Buy Now

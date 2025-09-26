@@ -106,7 +106,6 @@ const LoginSign = () => {
             return;
         }
         if (userSignPass !== userSignCpass) {
-            alert("Passwords do not match");
             Swal.fire({
                 icon: "error",
                 title: "Passwords do not match!",
@@ -130,12 +129,24 @@ const LoginSign = () => {
             console.log('sign up datq===>', data)
             localStorage.setItem('newUser', JSON.stringify(data))
             if (data.id) {
-                alert("Account created!");
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Account created!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 navigate("/"); // ya "/login"
             }
         }
         catch (err) {
-            console.error('login error:', err);
+           Swal.fire({
+                icon: "error",
+                title: "Sign Up Please",
+                text: "No User Save",
+                err
+            });
+            return;;
         }
 
 
