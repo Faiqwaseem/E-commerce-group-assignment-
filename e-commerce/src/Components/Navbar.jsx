@@ -112,7 +112,7 @@ const Navbar = () => {
                       key={p.id}
                       onClick={() => handleSelectProduct(p)}
                     >
-                      <img src={p.thumbnail} alt={p.title} />
+                      {/* <img src={p.thumbnail} alt={p.title} /> */}
                       <span>{p.title}</span>
                     </li>
                   ))}

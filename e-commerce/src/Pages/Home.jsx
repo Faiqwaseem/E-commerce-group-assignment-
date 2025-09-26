@@ -84,7 +84,7 @@ const banners = [
         <h2 className="section-title">All Products</h2>
 
         <div className="product-grid">
-          {products.slice(0, 15).map((product) => (
+          {products.slice(0, 16).map((product) => (
             <div key={product.id} className="product-card">
               <div className="img-box">
                 <img src={product.thumbnail} alt={product.title} />
@@ -103,7 +103,7 @@ const banners = [
                   className="order-btn"
                   onClick={() => {
                     addToCart(product);
-                    navigate("/oderSummary");
+                    navigate("/orderSummary");
                   }}
                 >
                   Buy Now

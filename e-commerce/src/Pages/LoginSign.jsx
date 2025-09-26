@@ -3,6 +3,7 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import Swal from 'sweetalert2';
 import { useNavigate } from "react-router";
 import { FaShoppingBag, FaEnvelope, FaLock, FaUser, FaFacebookF, FaGoogle, FaTwitter } from 'react-icons/fa';
 
@@ -26,12 +27,20 @@ const LoginSign = () => {
 
     const handleLogin = async () => {
         if (!userEmail || !userPassword) {
-            alert("Invlaid Value")
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Invlaid Value!",
+            });
             return;
         }
         const getData = localStorage.getItem('newUser')
         if (!getData) {
-            alert("No User Save")
+            Swal.fire({
+                icon: "error",
+                title: "Sign Up Please",
+                text: "No User Save",
+            });
             return;
         }
 
@@ -39,10 +48,20 @@ const LoginSign = () => {
         console.log(parsedData)
 
         if (parsedData.email === userEmail && parsedData.password === userPassword) {
-            alert("Login successfull")
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Login successfull",
+                showConfirmButton: false,
+                timer: 1500
+            });
             navigate('/')
         } else {
-            alert("Invalid credentials");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Invlaid Value!",
+            });
         }
 
 
@@ -79,11 +98,19 @@ const LoginSign = () => {
     const handleSign = async () => {
 
         if (!userSignName || !userSignEmail || !userSignPass || !userSignCpass) {
-            alert("Invlaid Value")
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Invlaid Value!",
+            });
             return;
         }
         if (userSignPass !== userSignCpass) {
             alert("Passwords do not match");
+            Swal.fire({
+                icon: "error",
+                title: "Passwords do not match!",
+            });
             setUserSignCpass("")
             return;
         }
