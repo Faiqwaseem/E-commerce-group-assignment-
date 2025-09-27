@@ -51,14 +51,14 @@ const Detail = () => {
       </Container>
     );
   }
-
+const getData = localStorage.getItem('newUser')
   return (
     <Container
       // mobile + tablet ke liye best
       disableGutters // left/right padding remove kar dega
       sx={{
         px: { xs: 2, sm: 3, md: 4 }, // custom horizontal padding
-        
+        marginTop: 10,
         height: {md:"987px",sm:"1122px"},
         width: {sm:"489px",md:"100%"},
         minWidth:"sm",
@@ -185,7 +185,7 @@ const Detail = () => {
                 "&:hover": { boxShadow: 3 },
               }}
               onClick={() => {
-                addToCart(product); navigate('/orderSummary')
+                addToCart(product);{getData ? navigate("/orderSummary"): navigate("/loginSign")}
               }}
             >
               Buy Now

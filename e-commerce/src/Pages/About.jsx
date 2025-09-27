@@ -5,44 +5,43 @@ const About = () => {
     {
       id: 1,
       name: "Rafay Nizam",
-      role: "Founder & CEO",
-      img: "https://picsum.photos/200/200?1",
+      role: "certified Frontend Developer",
+      img: "https://avatars.githubusercontent.com/u/189576142?v=4",
     },
     {
       id: 2,
-      name: "Ali Khan",
-      role: "Lead Developer",
-      img: "https://picsum.photos/200/200?2",
+      name: "Muhammad Faiq",
+      role: "Lead and certified Frontend Developer",
+      img: "https://avatars.githubusercontent.com/u/185547480?v=4",
     },
     {
       id: 3,
-      name: "Sara Ahmed",
-      role: "Marketing Head",
-      img: "https://picsum.photos/200/200?3",
+      name: "Ahmed Siddiqui",
+      role: "certified Frontend Developer",
+      img: "https://avatars.githubusercontent.com/u/116776898?v=4",
     },
   ];
 
   return (
     <div>
       {/* Hero Banner */}
-      <section className="about-hero">
+      {/* <section className="about-hero">
         <div className="about-hero-content">
           <h1>About Us</h1>
           <p className="breadcrumb">
             <a href="/">Home</a> / <span>About</span>
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* Who We Are */}
       <section className="about-section">
         <div className="about-container">
           <h2 className="section-heading">Who We Are</h2>
           <p>
-            We are a passionate team committed to providing the best products
-            and services to our customers. Our mission is to make shopping
-            simple, enjoyable, and affordable. With years of experience in the
-            industry, we strive to bring quality and trust in every purchase.
+            Our Team <br />
+
+            Our multidisciplinary team brings together designers, developers, and support specialists who share a single goal: to make every customer interaction seamless, enjoyable, and affordable. Collaboration, innovation, and customer focus drive everything we do.
           </p>
         </div>
       </section>

@@ -1,8 +1,32 @@
 // src/Components/Footer.jsx
-import React from "react";
+import React, { useRef } from "react";
 import "../assets/css/responsive.css";
-
+import emailjs from "emailjs-com";
 const Footer = () => {
+  const form = useRef();
+
+
+  const sendEmail = () => {
+
+
+    emailjs.sendForm(
+      'service_zq36uw8',
+      'template_31p846o',      // template id
+      form.current,            // form reference
+      'rqjeTMZDUolxSqaYu'        // public key
+    ).then(
+      (result) => {
+        console.log("Email sent!", result.text);
+        alert("Email Sent!");
+      },
+      (error) => {
+        console.log("Error:", error.text);
+        alert("Failed to send email.");
+      }
+    );
+  };
+
+
   return (
 
     <footer>
@@ -50,7 +74,7 @@ const Footer = () => {
         <div className="footer-section newsletter">
           <h4>Newsletter</h4>
           <input type="email" placeholder="Enter your email" />
-          <button>Subscribe</button>
+          <button onClick={sendEmail}>Subscribe</button>
         </div>
       </div>
 

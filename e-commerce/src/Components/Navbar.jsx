@@ -17,9 +17,18 @@ const Navbar = () => {
   const toggleRef = useRef(null);
 
   const searchRef = useRef(null);
- 
+
+  const [currentUser, setCurrenUser] = useState()
 
   const { cartItems } = useContext(ProductContext);
+
+
+useEffect (()=>{
+  const savedUser = localStorage.getItem('newUser');
+  if(savedUser){
+    setCurrenUser(JSON.parse(savedUser ))
+  }
+},[])
 
   // ✅ Fetch products here (so search will always have data)
   const { data } = useQuery({
@@ -68,11 +77,16 @@ const Navbar = () => {
     setFilteredProducts([]);
     navigate(`/product/${product.id}`);
   };
-
+const handleLogout = () => {
+  localStorage.removeItem('newUser')
+  setCurrenUser(null)
+  navigate("/loginSign")
+}
   return (
     <div>
       <header className="nav-wrap">
         <div className="container">
+          {/* Brand */}
           <a className="brand" href="#">
             <div className="logo">EC</div>
             <div>
@@ -81,11 +95,9 @@ const Navbar = () => {
             </div>
           </a>
 
+          {/* Nav Links */}
           <nav>
-            <div
-              className={`nav-links ${menuOpen ? "active" : ""}`}
-              ref={navRef}
-            >
+            <div className={`nav-links ${menuOpen ? "active" : ""}`}>
               <Link className="nav-list" to="/">Home</Link>
               <Link className="nav-list" to="/shop">Shop</Link>
               <Link className="nav-list" to="/deals">Deals</Link>
@@ -95,30 +107,38 @@ const Navbar = () => {
           </nav>
 
           {/* Actions */}
-          <div className="actions" ref={searchRef}>
-            {/* Search Box */}
-            <div className="search-box">
+          <div className="actions">
+            {/* Search */}
+            <div className="search">
               <input
                 type="search"
                 placeholder="Search products..."
                 value={searchQuery}
                 onChange={handleSearch}
               />
-              {/* Dropdown Results */}
-              {filteredProducts.length > 0 && (
-                <ul className="search-results">
-                  {filteredProducts.map((p) => (
-                    <li
-                      key={p.id}
-                      onClick={() => handleSelectProduct(p)}
-                    >
-                      <img src={p.thumbnail} alt={p.title} />
-                      <span>{p.title}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </div>
+
+            {/* Dropdown */}
+            {filteredProducts.length > 0 && (
+              <ul className="search-results">
+                {filteredProducts.map((p) => (
+                  <li
+                    key={p.id}
+                    onClick={() => handleSelectProduct(p)}
+                    className="search-result-item"
+                  >
+                    {p.title}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+
+            {/* <select  className="search-results" name="" id="">
+              {filteredProducts.map((p)=>
+              <option onClick={() => handleSelectProduct(p)} value="">{p.title}</option>
+              )}
+            </select> */}
 
             {/* Cart */}
             <Link
@@ -129,18 +149,21 @@ const Navbar = () => {
               {cartItems.length > 0 && (
                 <span className="cart-count">{cartItems.length}</span>
               )}
-
             </Link>
 
-           
+            {/* Login */}
+            {currentUser? <li className="user-menu">
+            <span>👤 {currentUser.firstName || currentUser.username}</span>
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
+          </li>:<button className="loginbtn" onClick={() => navigate("/loginSign")}>
+              Log in
+            </button>}
+            
 
-
-            <button className="loginbtn" onClick={() => navigate('/loginSign')}>Log in</button>
-
+            {/* Hamburger */}
             <button
               className={`icon-btn hamburger ${menuOpen ? "open" : ""}`}
               onClick={() => setMenuOpen(!menuOpen)}
-              ref={toggleRef}
             >
               ☰
             </button>
