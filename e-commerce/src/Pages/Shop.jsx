@@ -21,8 +21,13 @@ import { useNavigate } from "react-router";
 import CarouselsShop from "../Components/CarouselsShop";
 
 const Shop = () => {
- 
-  
+useEffect(()=>{
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+},[])
+
 
   useEffect(() => {
     // page load hone par top se start karo
@@ -79,9 +84,9 @@ const Shop = () => {
       </Box>
     );
   }
-const getData = localStorage.getItem('newUser')
+  const getData = localStorage.getItem('newUser')
   return (
-    
+
     // <Box
     //   sx={{
     //     // padding: ,
@@ -91,7 +96,7 @@ const getData = localStorage.getItem('newUser')
     //   }}
     // >
     //   <CarouselsShop />
-     
+
 
     //   <Typography
     //     variant="h3"
@@ -234,7 +239,7 @@ const getData = localStorage.getItem('newUser')
     //                 addToCart(product);
     //                 navigate("/orderSummary");
     //               }}
-                  
+
     //             >
     //               Buy Now
     //             </Button>
@@ -276,79 +281,85 @@ const getData = localStorage.getItem('newUser')
     // </Box>
     <div>
 
-       <CarouselsShop />
+      <CarouselsShop />
 
 
-          <section className="featured-section">
-  <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          gap: 2,
-          flexWrap: "wrap",
-          mb: 4,
-        }}
-      >
-        {categories.map((cat) => (
-          <Chip
-            key={cat}
-            label={cat}
-            clickable
-            onClick={() => setSelectedCategory(cat)}
-            sx={{
-              px: 2,
-              py: 1,
-              fontWeight: "bold",
-              borderRadius: "20px",
-              backgroundColor:
-                selectedCategory === cat ? "#2563EB" : "#E5E7EB",
-              color: selectedCategory === cat ? "#fff" : "#333",
-              "&:hover": {
+      <section className="featured-section">
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            gap: 2,
+            flexWrap: "wrap",
+            mb: 4,
+          }}
+        >
+          {categories.map((cat) => (
+            <Chip
+              key={cat}
+              label={cat}
+              clickable
+              onClick={() => setSelectedCategory(cat)}
+              sx={{
+                px: 2,
+                py: 1,
+                fontWeight: "bold",
+                borderRadius: "20px",
                 backgroundColor:
-                  selectedCategory === cat ? "#1E40AF" : "#d1d5db",
-              },
-              transition: "0.3s",
-            }}
-          />
-        ))}
-      </Box>
+                  selectedCategory === cat ? "#2563EB" : "#E5E7EB",
+                color: selectedCategory === cat ? "#fff" : "#333",
+                "&:hover": {
+                  backgroundColor:
+                    selectedCategory === cat ? "#1E40AF" : "#d1d5db",
+                },
+                transition: "0.3s",
+              }}
+            />
+          ))}
+        </Box>
 
-              <h2 className="section-title">Shop Our Products</h2>
+        <h2 className="section-title">Shop Our Products</h2>
 
 
-      
-              <div className="product-grid">
-                {filteredProducts.map((product) => (
-                  <div key={product.id} className="product-card">
-                    <div className="img-box">
-                      <img src={product.thumbnail} alt={product.title} />
-                    </div>
-                    <h3>{product.title}</h3>
-                    <p className="price">{product.price}</p>
-                    <div className="btn-group">
-      
-                      <button
+
+        <div className="product-grid">
+          {filteredProducts.map((product) => (
+            <div key={product.id} className="product-card">
+              <div className="img-box">
+                <img src={product.thumbnail} alt={product.title} />
+              </div>
+              <h3>{product.title}</h3>
+              <p className="price">{product.price}</p>
+              <div className="btn-group">
+
+                {/* <button
                         className="cart-btn"
                         onClick={() => addToCart(product)}
                       >
                         Add to Cart
-                      </button>
-                      <button
-                        className="order-btn"
-                        onClick={() => {
-                          addToCart(product);
-                          {getData ? navigate("/orderSummary"): navigate("/loginSign")};
-                        }}
-                      >
-                        Buy Now
-                      </button>
-      
-                    </div>
-                  </div>
-                ))}
+                      </button> */}
+
+                <NavLink className="View-btn"
+                  to={`/product/${product.id}`}
+                >
+                  View Details
+                </NavLink>
+                <button
+                  className="order-btn"
+                  onClick={() => {
+                    addToCart(product);
+                    { getData ? navigate("/orderSummary") : navigate("/loginSign") };
+                  }}
+                >
+                  Buy Now
+                </button>
+
               </div>
-      
-            </section>
+            </div>
+          ))}
+        </div>
+
+      </section>
     </div>
   );
 };

@@ -367,7 +367,7 @@ body {
   gap: 6px;
 }
 
-.cart-btn,
+
 .order-btn {
   flex: 1;
   padding: 8px;
@@ -378,8 +378,11 @@ body {
   cursor: pointer;
 }
 
-.cart-btn {
-  background: var(--secondary);
+.View-btn {
+  background-color: #0056b3 !important;
+  text-decoration: none;
+  height: 40px !important;
+  border-radius: 10px !important;
   color: #fff;
 }
 
@@ -937,12 +940,12 @@ footer {
 }
 
 /* Buttons subtle pulse */
-.cart-btn,
+.View-btn,
 .order-btn {
   position: relative;
 }
 
-.cart-btn:hover,
+.View-btn:hover,
 .order-btn:hover {
   animation: pulse 0.6s ease;
 }
@@ -1415,7 +1418,7 @@ footer {
 
 /* ===== BUTTON UPGRADE ===== */
 .shop-btn,
-.cart-btn,
+.View-btn,
 .order-btn {
   background: linear-gradient(135deg, var(--accent), var(--secondary));
   transition: all 0.3s ease;
@@ -1424,14 +1427,14 @@ footer {
 }
 
 .shop-btn:hover,
-.cart-btn:hover,
+.View-btn:hover,
 .order-btn:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .shop-btn::after,
-.cart-btn::after,
+.View-btn::after,
 .order-btn::after {
   content: "";
   position: absolute;
@@ -1446,7 +1449,7 @@ footer {
 }
 
 .shop-btn:active::after,
-.cart-btn:active::after,
+.View-btn:active::after,
 .order-btn:active::after {
   width: 300px;
   height: 300px;
@@ -1691,7 +1694,7 @@ body {
   margin-top: 1rem;
 }
 
-.cart-btn,
+.View-btn,
 .order-btn {
   flex: 1;
   padding: 10px 14px;
@@ -1702,7 +1705,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.cart-btn {
+.View-btn {
   background: #222;
   color: #fff;
 }
@@ -1712,7 +1715,7 @@ body {
   color: #fff;
 }
 
-.cart-btn:hover {
+.View-btn:hover {
   background: #444;
 }
 
@@ -1795,25 +1798,37 @@ body {
   animation: fadeIn 0.3s ease;
 }
 
+.search-results {
+  position: absolute;           /* input ke niche dropdown ban jaye */
+  top: 100%;
+  left: 0;
+  width: auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-height: 250px;            /* scroll ki limit */
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 999;
+}
+
 .search-results li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
+  gap: 8px;                     /* thoda space */
+  padding: 8px 12px;
   cursor: pointer;
   transition: background 0.2s ease;
+  font-size: 14px;
 }
 
 .search-results li:hover {
   background: #f6f8fb;
 }
 
-.search-results img {
-  width: 35px;
-  height: 35px;
-  object-fit: cover;
-  border-radius: 6px;
-}
+
 
 @keyframes fadeIn {
   from {

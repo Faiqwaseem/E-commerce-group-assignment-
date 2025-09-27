@@ -18,8 +18,17 @@ const Navbar = () => {
 
   const searchRef = useRef(null);
 
+  const [currentUser, setCurrenUser] = useState()
 
   const { cartItems } = useContext(ProductContext);
+
+
+useEffect (()=>{
+  const savedUser = localStorage.getItem('newUser');
+  if(savedUser){
+    setCurrenUser(JSON.parse(savedUser ))
+  }
+},[])
 
   // ✅ Fetch products here (so search will always have data)
   const { data } = useQuery({
@@ -68,7 +77,11 @@ const Navbar = () => {
     setFilteredProducts([]);
     navigate(`/product/${product.id}`);
   };
-
+const handleLogout = () => {
+  localStorage.removeItem('newUser')
+  setCurrenUser(null)
+  navigate("/loginSign")
+}
   return (
     <div>
       <header className="nav-wrap">
@@ -109,12 +122,23 @@ const Navbar = () => {
             {filteredProducts.length > 0 && (
               <ul className="search-results">
                 {filteredProducts.map((p) => (
-                  <li key={p.id} onClick={() => handleSelectProduct(p)}>
+                  <li
+                    key={p.id}
+                    onClick={() => handleSelectProduct(p)}
+                    className="search-result-item"
+                  >
                     {p.title}
                   </li>
                 ))}
               </ul>
             )}
+
+
+            {/* <select  className="search-results" name="" id="">
+              {filteredProducts.map((p)=>
+              <option onClick={() => handleSelectProduct(p)} value="">{p.title}</option>
+              )}
+            </select> */}
 
             {/* Cart */}
             <Link
@@ -128,9 +152,13 @@ const Navbar = () => {
             </Link>
 
             {/* Login */}
-            <button className="loginbtn" onClick={() => navigate("/loginSign")}>
+            {currentUser? <li className="user-menu">
+            <span>👤 {currentUser.firstName || currentUser.username}</span>
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
+          </li>:<button className="loginbtn" onClick={() => navigate("/loginSign")}>
               Log in
-            </button>
+            </button>}
+            
 
             {/* Hamburger */}
             <button

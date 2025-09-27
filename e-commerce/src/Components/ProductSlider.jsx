@@ -90,6 +90,9 @@ const navigate = useNavigate()
     touchDeltaX.current = 0;
   };
 
+  const getData = localStorage.getItem('newUser')
+ console.log(getData)
+
   // compute translate percentage
   const translatePercent = () => {
     // Each slide is width = 100 / slidesPerView %
@@ -134,7 +137,7 @@ const navigate = useNavigate()
               <p className="price">{product.price}</p>
              <div className="btn-group">
               <button className="cart-btn" onClick={()=> addToCart(product)}>Add to Cart</button>
-              <button className="order-btn" onClick={()=> {addToCart(product); navigate('/ordersummary')}}>Buy Now</button>
+              <button className="order-btn" onClick={()=> {addToCart(product); {getData ? navigate("/orderSummary"): navigate("/loginSign")}}}>Buy Now</button>
             </div>
             </div>
           ))}

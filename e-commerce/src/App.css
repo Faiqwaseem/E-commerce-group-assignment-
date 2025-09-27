@@ -31,3 +31,77 @@
 .signupbtn:hover {
     background-color: #ffad77;
 }
+
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.float:hover{
+    background-color: #0b943d;
+}
+
+.iconmyWhatsapp{
+    font-size: 45px;
+    margin: 7px auto;
+}
+/* Parent li or div where user info shows */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;                 /* space between name and button */
+}
+
+/* User name text with icon */
+.user-menu span {
+  display: flex;
+  align-items: center;
+  gap: 4px;                 /* icon + name spacing */
+  font-size: 19px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Logout button style */
+.logout-btn {
+  padding: 6px 12px;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+
+
+
+/* Responsive tweak (optional) */
+@media (max-width: 600px) {
+  .user-menu span {
+    font-size: 12px;
+  }
+  .logout-btn
+   {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
