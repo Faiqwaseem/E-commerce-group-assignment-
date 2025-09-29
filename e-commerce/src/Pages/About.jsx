@@ -1,31 +1,48 @@
 import React from "react";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
-import "../assets/css/responsive.css";
 
 const About = () => {
+  const team = [
+    {
+      id: 1,
+      name: "Rafay Nizam",
+      role: "Founder & CEO",
+      img: "https://picsum.photos/200/200?1",
+    },
+    {
+      id: 2,
+      name: "Ali Khan",
+      role: "Lead Developer",
+      img: "https://picsum.photos/200/200?2",
+    },
+    {
+      id: 3,
+      name: "Sara Ahmed",
+      role: "Marketing Head",
+      img: "https://picsum.photos/200/200?3",
+    },
+  ];
+
   return (
     <div>
-  
-
-      {/* Hero Section */}
+      {/* Hero Banner */}
       <section className="about-hero">
         <div className="about-hero-content">
           <h1>About Us</h1>
-          <p>We are more than just a store – we’re your shopping companion.</p>
+          <p className="breadcrumb">
+            <a href="/">Home</a> / <span>About</span>
+          </p>
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* Who We Are */}
       <section className="about-section">
         <div className="about-container">
-          <h2>Our Story</h2>
+          <h2 className="section-heading">Who We Are</h2>
           <p>
-            ShopMate was founded with one simple goal: to make shopping easy,
-            affordable, and enjoyable. We believe in offering high-quality
-            products at fair prices, while building a community of happy
-            customers. From electronics to daily essentials, we bring the best
-            deals right to your fingertips.
+            We are a passionate team committed to providing the best products
+            and services to our customers. Our mission is to make shopping
+            simple, enjoyable, and affordable. With years of experience in the
+            industry, we strive to bring quality and trust in every purchase.
           </p>
         </div>
       </section>
@@ -35,61 +52,52 @@ const About = () => {
         <div className="about-card">
           <h3>Our Mission</h3>
           <p>
-            To simplify shopping with trust, transparency, and top-notch
-            service.
+            To deliver high-quality products at unbeatable prices while ensuring
+            customer satisfaction and building long-term trust.
           </p>
         </div>
         <div className="about-card">
           <h3>Our Vision</h3>
           <p>
-            To be the most loved online store where every customer feels valued
-            and satisfied.
+            To become a leading global e-commerce platform, known for
+            innovation, excellence, and customer-first service.
           </p>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="about-section">
-        <div className="about-container">
-          <h2>Why Choose Us?</h2>
-          <ul className="why-list">
-            <li>✔ Wide range of premium quality products</li>
-            <li>✔ Affordable prices with exciting deals</li>
-            <li>✔ Fast & reliable delivery</li>
-            <li>✔ Customer-first support team</li>
-          </ul>
+      {/* Counters */}
+      <section className="counter-section">
+        <div className="counter-box">
+          <h2>500+</h2>
+          <p>Happy Customers</p>
+        </div>
+        <div className="counter-box">
+          <h2>120+</h2>
+          <p>Brands</p>
+        </div>
+        <div className="counter-box">
+          <h2>1500+</h2>
+          <p>Products Sold</p>
+        </div>
+        <div className="counter-box">
+          <h2>24/7</h2>
+          <p>Support</p>
         </div>
       </section>
 
       {/* Team Section */}
-      <section className="about-section">
-        <div className="about-container">
-          <h2>Meet Our Team</h2>
-          <div className="team-grid">
-            {["Alice", "John", "Sophia", "David"].map((name, i) => (
-              <div key={i} className="team-card">
-                <img
-                  src={`https://i.pravatar.cc/200?img=${i + 10}`}
-                  alt={name}
-                />
-                <h4>{name}</h4>
-                <p>{i % 2 === 0 ? "Developer" : "Designer"}</p>
-              </div>
-            ))}
-          </div>
+      <section className="team-section">
+        <h2 className="section-heading">Meet Our Team</h2>
+        <div className="team-grid">
+          {team.map((member) => (
+            <div key={member.id} className="team-card">
+              <img src={member.img} alt={member.name} />
+              <h3>{member.name}</h3>
+              <p>{member.role}</p>
+            </div>
+          ))}
         </div>
       </section>
-
-      {/* Call to Action */}
-      <section className="about-cta">
-        <h2>Join Our Journey</h2>
-        <p>
-          Be a part of the ShopMate family today and experience shopping like
-          never before.
-        </p>
-        <button>Start Shopping</button>
-      </section>
-
     </div>
   );
 };

@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fff8f1 0%, #ffeae0 100%);
+}
+
+.containerlogin {
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 100%;
+    max-width: 900px;
+    min-height: 500px;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    overflow: hidden;
+}
+
+.brand-section {
+    flex: 1;
+    background: linear-gradient(to bottom right, #ffc9a4, #fd9e5f);
+    color: #4a4a4a;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.brand-logo {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.LOGOICON {
+    font-size: 50px !important;
+    color: #ff6600;
+}
+
+.brand-section h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #4a4a4a;
+}
+
+.facebook {
+    background-color: #0d3ab6 !important;
+}
+
+.google {
+    background-color: #d64e36 !important;
+}
+
+.twitter {
+    background-color: #237ea5 !important;
+}
+
+.brand-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #6c6c6c;
+}
+
+.form-section {
+    flex: 1.5;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.form-toggle {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.toggle-btn {
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #999;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.toggle-btn.active {
+    color: #ff6600;
+}
+
+.toggle-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ff6600;
+    border-radius: 3px 3px 0 0;
+}
+
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+    background: #f9f9f9;
+}
+
+.input-group input:focus {
+    border-color: #ff6600;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.2);
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    color: #6c6c6c;
+}
+
+.remember input {
+    margin-right: 8px;
+}
+
+.forgot {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ff6600;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.social-login {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.social-login p {
+    margin-bottom: 5px;
+    color: #999;
+    position: relative;
+}
+
+.social-login p::before,
+.social-login p::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background-color: #eee;
+}
+
+.social-login p::before {
+    left: 0;
+}
+
+.social-login p::after {
+    right: 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.facebook {
+    background-color: #ffaa80;
+}
+
+.google {
+    background-color: #ff954d;
+}
+
+.twitter {
+    background-color: #ff7f33;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 992px) {
+    .containerlogin {
+        max-width: 700px;
+    }
+
+    .brand-section h2 {
+        font-size: 24px;
+    }
+
+    .brand-section p {
+        font-size: 14px;
+    }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+    .containerlogin {
+        flex-direction: column;
+        max-width: 500px;
+        min-height: auto;
+        padding: 15px;
+    }
+
+    .brand-section,
+    .form-section {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .brand-section {
+        border-radius: 16px 16px 0 0;
+    }
+
+    .form-section {
+        border-radius: 0 0 16px 16px;
+    }
+
+    .brand-logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+
+    .LOGOICON {
+        font-size: 40px !important;
+    }
+
+    .toggle-btn {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    .input-group input {
+        padding: 12px 12px 12px 40px;
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .brand-section h2 {
+        font-size: 20px;
+    }
+
+    .brand-section p {
+        font-size: 13px;
+    }
+}

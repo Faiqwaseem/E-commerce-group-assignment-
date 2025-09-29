@@ -1,10 +1,13 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import "../assets/css/responsive.css";
 
 const Contact = () => {
   return (
     <div>
+      
 
       {/* Hero Section */}
       <section className="contact-hero">
@@ -18,20 +21,30 @@ const Contact = () => {
       <section className="contact-info">
         <div className="info-grid">
           <div className="info-card">
-            <h3>📍 Address</h3>
+            <FaMapMarkerAlt className="info-icon" />
+            <h3>Address</h3>
             <p>123 Market Street, New York, USA</p>
           </div>
           <div className="info-card">
-            <h3>📧 Email</h3>
-            <p>support@shopmate.com</p>
+            <FaEnvelope className="info-icon" />
+            <h3>Email</h3>
+            <a href="mailto:rafaynizam834@gmail.com">rafaynizam834@gmail.com</a>
           </div>
           <div className="info-card">
-            <h3>📞 Phone</h3>
-            <p>+1 (234) 567-890</p>
+            <FaPhoneAlt className="info-icon" />
+            <h3>Phone</h3>
+            <a href="tel:+923359389576">+92 335 9389576</a>
           </div>
           <div className="info-card">
-            <h3>⏰ Hours</h3>
-            <p>Mon – Sat: 9:00 AM – 8:00 PM</p>
+            <FaWhatsapp className="info-icon whatsapp" />
+            <h3>WhatsApp</h3>
+            <a
+              href="https://wa.me/923359389576"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chat on WhatsApp
+            </a>
           </div>
         </div>
       </section>
@@ -56,6 +69,8 @@ const Contact = () => {
           loading="lazy"
         ></iframe>
       </section>
+
+      
     </div>
   );
 };
